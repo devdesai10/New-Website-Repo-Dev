@@ -75,8 +75,14 @@
   /* Typing effect */
   .hero__title { font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 5.2rem); font-weight: 400; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 24px; opacity: 0; animation: fadeUp 0.8s 0.35s forwards; }
   .hero__title em { font-style: italic; color: var(--accent-light); }
-  .typing-wrapper { display: inline; }
-  .typing-cursor { display: inline-block; width: 3px; height: 0.85em; background: var(--accent-light); margin-left: 4px; vertical-align: baseline; position: relative; top: 0.05em; animation: blink 0.8s step-end infinite; }
+  .typing-wrapper {
+    display: inline;
+    background: linear-gradient(135deg, #3b82f6, #60a5fa, #f59e0b, #f97316);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .typing-cursor { display: inline-block; width: 3px; height: 0.85em; background: #f97316; margin-left: 4px; vertical-align: baseline; position: relative; top: 0.05em; animation: blink 0.8s step-end infinite; }
   @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
 
   .hero__subtitle { font-size: 1.05rem; color: var(--text-muted); max-width: 480px; line-height: 1.75; margin-bottom: 36px; opacity: 0; animation: fadeUp 0.8s 0.5s forwards; }
