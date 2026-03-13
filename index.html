@@ -192,8 +192,9 @@
     .about-photos { max-width: 400px; margin: 0 auto; }
   }
   @media (max-width: 600px) {
-    .nav-links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(10,10,11,0.97); flex-direction: column; justify-content: center; align-items: center; gap: 32px; z-index: 200; }
+    .nav-links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(10,10,11,0.97); flex-direction: column; justify-content: center; align-items: center; gap: 32px; z-index: 200; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 80px 0; }
     .nav-links.open { display: flex; }
+    body.menu-open { overflow: hidden; }
     .nav-links a { font-size: 1.1rem; }
     .nav-toggle { display: block; z-index: 300; }
     section { padding: 80px 0; }
@@ -214,15 +215,15 @@
 <nav>
   <div class="container">
     <a href="#" class="logo">Devan<span>.</span></a>
-    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open'); document.body.classList.toggle('menu-open')">
       <i class="ri-menu-line"></i>
     </button>
     <ul class="nav-links">
-      <li><a href="#about" onclick="document.querySelector('.nav-links').classList.remove('open')">About</a></li>
-      <li><a href="#experience" onclick="document.querySelector('.nav-links').classList.remove('open')">Experience</a></li>
-      <li><a href="#projects" onclick="document.querySelector('.nav-links').classList.remove('open')">Projects</a></li>
-      <li><a href="#certs" onclick="document.querySelector('.nav-links').classList.remove('open')">Certifications</a></li>
-      <li><a href="#contact" onclick="document.querySelector('.nav-links').classList.remove('open')">Contact</a></li>
+      <li><a href="#about" onclick="document.querySelector('.nav-links').classList.remove('open'); document.body.classList.remove('menu-open')">About</a></li>
+      <li><a href="#experience" onclick="document.querySelector('.nav-links').classList.remove('open'); document.body.classList.remove('menu-open')">Experience</a></li>
+      <li><a href="#projects" onclick="document.querySelector('.nav-links').classList.remove('open'); document.body.classList.remove('menu-open')">Projects</a></li>
+      <li><a href="#certs" onclick="document.querySelector('.nav-links').classList.remove('open'); document.body.classList.remove('menu-open')">Certifications</a></li>
+      <li><a href="#contact" onclick="document.querySelector('.nav-links').classList.remove('open'); document.body.classList.remove('menu-open')">Contact</a></li>
       <li><a href="https://docs.google.com/document/d/1sfXfAEByiqKkD9c1fUIVtKffkp7KItv37qcC9-pTcy0/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Resume ↗</a></li>
     </ul>
   </div>
