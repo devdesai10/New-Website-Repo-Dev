@@ -7,14 +7,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Devan Desai | Portfolio</title>
 <!-- Security Headers added by Kiro-->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data:; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data:; script-src 'self' 'nonce-portfolio2025'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="X-Frame-Options" content="DENY">
 <meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
 <!-- Dd in the tab on browser-->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif');</style><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Instrument Serif' font-size='32' fill='white'>Dd</text></svg>">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='32' fill='white'>Dd</text></svg>">
 <style>
   :root {
     --bg: #0a0a0b;
@@ -66,11 +67,12 @@
   .nav-toggle { display: none; background: none; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; }
 
   /* Buttons */
-  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; font-family: var(--sans); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.02em; border-radius: 6px; text-decoration: none; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); cursor: pointer; border: none; }
-  .btn--primary { background: var(--accent); color: #fff; }
-  .btn--primary:hover { background: var(--gradient); transform: translateY(-1px); box-shadow: 0 8px 30px rgba(249, 115, 22, 0.2); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 26px; font-family: var(--sans); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.02em; border-radius: 6px; text-decoration: none; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); cursor: pointer; border: 1px solid transparent; box-sizing: border-box; }
+  .btn--primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .btn--primary:hover { background: var(--gradient); border-color: transparent; transform: translateY(-1px); box-shadow: 0 8px 30px rgba(249, 115, 22, 0.2); }
   .btn--ghost { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
   .btn--ghost:hover { color: var(--text); border-color: var(--text-muted); }
+  .contact-links .btn { min-width: 160px; }
 
   /* Hero */
   .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; }
@@ -137,6 +139,7 @@
   .timeline-item__desc li { margin-bottom: 4px; margin-left: 16px; list-style: disc; }
 
   /* Education */
+  .edu-section { margin-top: 80px; }
   .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
   .edu-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 28px; transition: all 0.3s; }
   .edu-card:hover { border-color: var(--border); }
@@ -219,15 +222,15 @@
 <nav>
   <div class="container">
     <a href="#" class="logo">Devan<span>.</span></a>
-    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open'); document.body.classList.toggle('menu-open')">
+    <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle navigation menu">
       <i class="ri-menu-line"></i>
     </button>
-    <ul class="nav-links">
-      <li><a href="#about" onclick="document.querySelector('.nav-links').classList.remove('open'); document.body.classList.remove('menu-open')">About</a></li>
-      <li><a href="#experience" onclick="document.querySelector('.nav-links').classList.remove('open'); document.body.classList.remove('menu-open')">Experience</a></li>
-      <li><a href="#projects" onclick="document.querySelector('.nav-links').classList.remove('open'); document.body.classList.remove('menu-open')">Projects</a></li>
-      <li><a href="#certs" onclick="document.querySelector('.nav-links').classList.remove('open'); document.body.classList.remove('menu-open')">Certifications</a></li>
-      <li><a href="#contact" onclick="document.querySelector('.nav-links').classList.remove('open'); document.body.classList.remove('menu-open')">Contact</a></li>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about" class="nav-close-link">About</a></li>
+      <li><a href="#experience" class="nav-close-link">Experience</a></li>
+      <li><a href="#projects" class="nav-close-link">Projects</a></li>
+      <li><a href="#certs" class="nav-close-link">Certifications</a></li>
+      <li><a href="#contact" class="nav-close-link">Contact</a></li>
       <li><a href="https://docs.google.com/document/d/1sfXfAEByiqKkD9c1fUIVtKffkp7KItv37qcC9-pTcy0/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Resume ↗</a></li>
     </ul>
   </div>
@@ -286,7 +289,7 @@
     </div>
 
     <div class="reveal">
-      <p class="section__label" style="margin-bottom: 14px;">// Tech & Skills</p>
+      <p class="section__label section__label--skills" style="margin-bottom: 14px;">// Tech & Skills</p>
       <div class="skills-row">
         <span class="skill-tag">Python</span>
         <span class="skill-tag">Swift</span>
@@ -410,7 +413,7 @@
     </div>
 
     <!-- Education -->
-    <div style="margin-top: 80px;">
+    <div class="edu-section">
       <p class="section__label reveal">// Education</p>
       <h2 class="section__heading reveal">Education</h2>
       <div class="edu-grid reveal">
@@ -532,7 +535,7 @@
     <h2 class="section__heading reveal">Let's Connect</h2>
     <p class="reveal">Have an opportunity or just want to say hi? I'd love to hear from you.</p>
     <div class="contact-links reveal">
-      <a href="mailto:devandesai03@gmail.com" class="btn btn--primary"><i class="ri-mail-line"></i> Email Me</a>
+      <a href="#" id="email-link" class="btn btn--primary"><i class="ri-mail-line"></i> Email Me</a>
       <a href="https://www.linkedin.com/in/devan-desai-/" target="_blank" rel="noopener noreferrer" class="btn btn--ghost"><i class="ri-linkedin-fill"></i> LinkedIn</a>
       <a href="https://www.instagram.com/devan.desaii/" target="_blank" rel="noopener noreferrer" class="btn btn--ghost"><i class="ri-instagram-line"></i> Instagram</a>
       <a href="https://github.com/devdesai10" target="_blank" rel="noopener noreferrer" class="btn btn--ghost"><i class="ri-github-fill"></i> GitHub</a>
@@ -542,38 +545,70 @@
 
 <footer>
   <div class="container">
-    <p>&copy; 2024 Devan Desai</p>
+    <p>&copy; <span id="copyright-year"></span> Devan Desai</p>
     <p>Launched with tons of errors</p>
   </div>
 </footer>
 
-<script>
+<script nonce="portfolio2025">
+  // Dynamic copyright year
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+  // Mobile nav toggle (replaces inline onclick)
+  const navToggle = document.getElementById('nav-toggle-btn');
+  const navLinks = document.getElementById('nav-links');
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+      document.body.classList.toggle('menu-open');
+    });
+  }
+
+  // Close mobile nav when a link is clicked (replaces inline onclick)
+  document.querySelectorAll('.nav-close-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+      navLinks.classList.remove('open');
+      document.body.classList.remove('menu-open');
+    });
+  });
+
   // Typing animation for name
   const typedEl = document.getElementById('typed-name');
-  const nameText = 'Devan Desai';
-  let charIndex = 0;
+  if (typedEl) {
+    const nameText = 'Devan Desai';
+    let charIndex = 0;
 
-  function typeChar() {
-    if (charIndex < nameText.length) {
-      typedEl.textContent += nameText.charAt(charIndex);
-      charIndex++;
-      setTimeout(typeChar, 90);
+    function typeChar() {
+      if (charIndex < nameText.length) {
+        typedEl.textContent += nameText.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeChar, 90);
+      }
     }
+    // Start typing after hero fades in
+    setTimeout(typeChar, 900);
   }
-  // Start typing after hero fades in
-  setTimeout(typeChar, 900);
 
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry, i) {
       if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 70);
+        setTimeout(function() { entry.target.classList.add('visible'); }, i * 70);
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-  reveals.forEach(el => observer.observe(el));
+  }, { threshold: 0.15 });
+  reveals.forEach(function(el) { observer.observe(el); });
+  // Email obfuscation (anti-scraping)
+  var emailLink = document.getElementById('email-link');
+  if (emailLink) {
+    emailLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      var parts = ['devan', 'desai10', 'gmail', 'com'];
+      window.location.href = 'mai' + 'lto:' + parts[0] + '.' + parts[1] + '@' + parts[2] + '.' + parts[3];
+    });
+  }
 </script>
 </body>
 </html>
