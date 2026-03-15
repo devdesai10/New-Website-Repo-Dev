@@ -95,7 +95,8 @@
   @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
 
   .hero__subtitle { font-size: 1.05rem; color: var(--text-muted); max-width: 480px; line-height: 1.75; margin-bottom: 36px; opacity: 0; animation: fadeUp 0.8s 0.5s forwards; }
-  .hero__cta { display: flex; gap: 14px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s 0.65s forwards; }
+  .hero__cta { display: flex; gap: 14px; flex-wrap: nowrap; opacity: 0; animation: fadeUp 0.8s 0.65s forwards; }
+  .hero__cta .btn { min-width: 160px; }
   .hero__photo { opacity: 0; animation: fadeUp 0.8s 0.5s forwards; display: flex; justify-content: center; }
   .hero__photo img { width: min(360px, 100%); border-radius: 16px; border: 2px solid var(--border); box-shadow: 0 30px 80px rgba(0,0,0,0.4); object-fit: cover; }
 
@@ -546,11 +547,10 @@
 <footer>
   <div class="container">
     <p>&copy; <span id="copyright-year"></span> Devan Desai</p>
-    <p>Built with Chipotle Support Bot</p>
+    <p>Launched with tons of errors</p>
   </div>
 </footer>
 
-<!-- Used ChatGPT to make my security headers better and it suggested to make the dynamic copyright year-->
 <script nonce="portfolio2025">
   // Dynamic copyright year
   document.getElementById('copyright-year').textContent = new Date().getFullYear();
