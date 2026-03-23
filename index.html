@@ -132,7 +132,8 @@
   .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1px; background: var(--border); }
   .timeline-item { padding-left: 36px; padding-bottom: 44px; position: relative; }
   .timeline-item:last-child { padding-bottom: 0; }
-  .timeline-item::before { content: ''; position: absolute; left: -4px; top: 8px; width: 9px; height: 9px; border-radius: 50%; background: var(--gradient); }
+  .timeline-item::before { content: ''; position: absolute; left: -4px; top: 8px; width: 9px; height: 9px; border-radius: 50%; background: var(--gradient); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  .timeline-item:hover::before { transform: scale(2); box-shadow: 0 0 12px rgba(59, 130, 246, 0.4); }
   .timeline-item__date { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); letter-spacing: 0.08em; margin-bottom: 6px; }
   .timeline-item__role { font-family: var(--serif); font-size: 1.25rem; margin-bottom: 2px; }
   .timeline-item__company { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 0.88rem; margin-bottom: 10px; font-weight: 400; }
@@ -184,7 +185,14 @@
   /* Footer */
   footer { border-top: 1px solid var(--border-subtle); padding: 36px 0; }
   footer .container { display: flex; justify-content: space-between; align-items: center; }
-  footer p { font-size: 0.76rem; color: var(--text-dim); }
+  footer p { font-size: 0.76rem; color: #fff; }
+  .footer-clock { font-family: var(--mono); font-size: 0.76rem; color: #fff; }
+
+  /* Contact Bubble */
+  .contact-bubble { position: fixed; bottom: 28px; right: 28px; z-index: 99; height: 56px; border-radius: 28px; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0; box-shadow: 0 8px 30px rgba(59, 130, 246, 0.3); transition: max-width 0.6s ease, box-shadow 0.6s ease; text-decoration: none; color: #fff; font-size: 1.4rem; padding: 0 18px; overflow: hidden; white-space: nowrap; max-width: 56px; }
+  .contact-bubble span { max-width: 0; overflow: hidden; opacity: 0; font-family: var(--sans); font-size: 0.82rem; font-weight: 500; transition: max-width 0.6s ease, opacity 0.6s ease, margin 0.6s ease; margin-left: 0; }
+  .contact-bubble:hover { max-width: 220px; box-shadow: 0 12px 40px rgba(59, 130, 246, 0.4); }
+  .contact-bubble:hover span { max-width: 120px; opacity: 1; margin-left: 8px; }
 
   /* Reveal */
   .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1); }
@@ -221,6 +229,8 @@
 
 <div class="glow glow--1"></div>
 <div class="glow glow--2"></div>
+
+<a href="#contact" class="contact-bubble" aria-label="Contact me"><i class="ri-mail-send-line"></i><span>Contact Me</span></a>
 
 <!-- Nav -->
 <nav>
@@ -598,7 +608,8 @@
 <footer>
   <div class="container">
     <p>&copy; <span id="copyright-year"></span> Devan Desai</p>
-    <p>Created by the Chipotle Support Bot</p>
+    <p class="footer-clock" id="footer-clock"></p>
+    <p>Created by the Chipotle Support Bot (iykyk)</p>
   </div>
 </footer>
 
@@ -661,6 +672,22 @@
       window.location.href = 'mai' + 'lto:' + parts[0] + '.' + parts[1] + '@' + parts[2] + '.' + parts[3];
     });
   }
+
+  // GMT-5 live clock
+  function updateClock() {
+    var now = new Date();
+    var utc = now.getTime() + now.getTimezoneOffset() * 60000;
+    var gmt5 = new Date(utc - 5 * 3600000);
+    var h = gmt5.getHours();
+    var m = gmt5.getMinutes();
+    var s = gmt5.getSeconds();
+    var ampm = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12;
+    var time = h + ':' + (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s + ' ' + ampm + ' GMT-5';
+    document.getElementById('footer-clock').textContent = time;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
 </script>
 </body>
 </html>
