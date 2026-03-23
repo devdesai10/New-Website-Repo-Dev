@@ -162,10 +162,11 @@
   .cert-item:hover .arrow { transform: translateX(3px); color: var(--text-muted); }
 
   /* Projects */
-  .project-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 32px; transition: all 0.4s cubic-bezier(0.4,0,0.2,1); position: relative; overflow: hidden; margin-bottom: 18px; }
+  a.project-card-link { text-decoration: none; color: inherit; display: block; margin-bottom: 18px; }
+  .project-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 32px; transition: all 0.4s cubic-bezier(0.4,0,0.2,1); position: relative; overflow: hidden; }
   .project-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(249,115,22,0.06), transparent 60%); opacity: 0; transition: opacity 0.4s; }
-  .project-card:hover { border-color: var(--border); transform: translateY(-3px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
-  .project-card:hover::before { opacity: 1; }
+  .project-card-link:hover .project-card { border-color: var(--border); transform: translateY(-3px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+  .project-card-link:hover .project-card::before { opacity: 1; }
   .project-card__number { font-family: var(--mono); font-size: 0.68rem; color: var(--text-dim); letter-spacing: 0.1em; margin-bottom: 16px; position: relative; }
   .project-card h3 { font-family: var(--serif); font-size: 1.5rem; margin-bottom: 10px; position: relative; font-weight: 400; }
   .project-card p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 20px; position: relative; }
@@ -232,7 +233,7 @@
       <li><a href="#projects" class="nav-close-link">Projects</a></li>
       <li><a href="#certs" class="nav-close-link">Certifications</a></li>
       <li><a href="#contact" class="nav-close-link">Contact</a></li>
-      <li><a href="https://docs.google.com/document/d/1sfXfAEByiqKkD9c1fUIVtKffkp7KItv37qcC9-pTcy0/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Resume ↗</a></li>
+      <li><a href="https://docs.google.com/document/d/1sfXfAEByiqKkD9c1fUIVtKffkp7KItv37qcC9-pTcy0/export?format=pdf" download="Devan_Desai_Resume.pdf">Resume ↓</a></li>
     </ul>
   </div>
 </nav>
@@ -246,7 +247,7 @@
       <p class="hero__subtitle">Cloud Support Associate at AWS with a passion for coding, cloud computing, and building solutions. Rutgers ITI graduate ready to make an impact.</p>
       <div class="hero__cta">
         <a href="https://www.linkedin.com/in/devan-desai-/" target="_blank" rel="noopener noreferrer" class="btn btn--primary"><i class="ri-linkedin-fill"></i> LinkedIn</a>
-        <a href="https://docs.google.com/document/d/1sfXfAEByiqKkD9c1fUIVtKffkp7KItv37qcC9-pTcy0/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">Resume ↗</a>
+        <a href="https://docs.google.com/document/d/1sfXfAEByiqKkD9c1fUIVtKffkp7KItv37qcC9-pTcy0/export?format=pdf" download="Devan_Desai_Resume.pdf" class="btn btn--ghost">Resume ↓</a>
         <a href="https://github.com/devdesai10" target="_blank" rel="noopener noreferrer" class="btn btn--ghost"><i class="ri-github-fill"></i> GitHub</a>
       </div>
     </div>
@@ -441,76 +442,88 @@
     <p class="section__label reveal">// Selected work</p>
     <h2 class="section__heading reveal">Projects</h2>
 
-    <div class="project-card reveal">
-      <span class="project-card__number">01</span>
-      <h3>Highly Available Web Server</h3>
-      <p>Designed a web server that remains available even during DDoS attacks or disasters. Built using AWS services for maximum resilience and uptime.</p>
-      <div class="project-card__tags">
-        <span class="tag">EC2</span>
-        <span class="tag">AWS Shield</span>
-        <span class="tag">Lambda</span>
-        <span class="tag">Load Balancers</span>
-        <span class="tag">Auto Scaling</span>
+    <a href="https://github.com/devdesai10" target="_blank" rel="noopener noreferrer" class="project-card-link reveal">
+      <div class="project-card">
+        <span class="project-card__number">01</span>
+        <h3>Highly Available Web Server</h3>
+        <p>Designed a web server that remains available even during DDoS attacks or disasters. Built using AWS services for maximum resilience and uptime.</p>
+        <div class="project-card__tags">
+          <span class="tag">EC2</span>
+          <span class="tag">AWS Shield</span>
+          <span class="tag">Lambda</span>
+          <span class="tag">Load Balancers</span>
+          <span class="tag">Auto Scaling</span>
+        </div>
       </div>
-    </div>
+    </a>
 
-    <div class="project-card reveal">
-      <span class="project-card__number">02</span>
-      <h3>Portfolio Website</h3>
-      <p>This personal portfolio — designed and built from scratch with a clean dark theme, typing animation, scroll reveals, and responsive layout.</p>
-      <div class="project-card__tags">
-        <span class="tag">HTML</span>
-        <span class="tag">CSS</span>
-        <span class="tag">JavaScript</span>
+    <a href="https://github.com/devdesai10" target="_blank" rel="noopener noreferrer" class="project-card-link reveal">
+      <div class="project-card">
+        <span class="project-card__number">02</span>
+        <h3>Portfolio Website</h3>
+        <p>This personal portfolio — designed and built from scratch with a clean dark theme, typing animation, scroll reveals, and responsive layout.</p>
+        <div class="project-card__tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
       </div>
-    </div>
+    </a>
 
-    <div class="project-card reveal">
-      <span class="project-card__number">03</span>
-      <h3>Gym Crowding Project</h3>
-      <p>Designed and implemented a plan that would minimize the amount of traffic at a Rutgers Campus Gym.</p>
-      <div class="project-card__tags">
-        <span class="tag">Leadership</span>
-        <span class="tag">Zoom</span>
-        <span class="tag">Excel</span>
-        <span class="tag">Communication</span>
+    <a href="https://github.com/devdesai10" target="_blank" rel="noopener noreferrer" class="project-card-link reveal">
+      <div class="project-card">
+        <span class="project-card__number">03</span>
+        <h3>Gym Crowding Project</h3>
+        <p>Designed and implemented a plan that would minimize the amount of traffic at a Rutgers Campus Gym.</p>
+        <div class="project-card__tags">
+          <span class="tag">Leadership</span>
+          <span class="tag">Zoom</span>
+          <span class="tag">Excel</span>
+          <span class="tag">Communication</span>
+        </div>
       </div>
-    </div>
+    </a>
 
-    <div class="project-card reveal">
-      <span class="project-card__number">04</span>
-      <h3>NYTimes API Data Gather Project</h3>
-      <p>Took data from an NY Times article and organized the information. Was able to gather emails, names of authors, and countries and compile them into a display.</p>
-      <div class="project-card__tags">
-        <span class="tag">Python</span>
-        <span class="tag">R</span>
-        <span class="tag">Excel</span>
+    <a href="https://github.com/devdesai10" target="_blank" rel="noopener noreferrer" class="project-card-link reveal">
+      <div class="project-card">
+        <span class="project-card__number">04</span>
+        <h3>NYTimes API Data Gather Project</h3>
+        <p>Took data from an NY Times article and organized the information. Was able to gather emails, names of authors, and countries and compile them into a display.</p>
+        <div class="project-card__tags">
+          <span class="tag">Python</span>
+          <span class="tag">R</span>
+          <span class="tag">Excel</span>
+        </div>
       </div>
-    </div>
+    </a>
 
-    <div class="project-card reveal">
-      <span class="project-card__number">05</span>
-      <h3>Discord Sports Digest Bot</h3>
-      <p>Created a bot that sends messages with information about Multiple different sports into a Discord channel</p>
-      <div class="project-card__tags">
-        <span class="tag">Python</span>
-        <span class="tag">Terminal</span>
-        <span class="tag">cron jobs</span>
+    <a href="https://github.com/devdesai10" target="_blank" rel="noopener noreferrer" class="project-card-link reveal">
+      <div class="project-card">
+        <span class="project-card__number">05</span>
+        <h3>Discord Sports Digest Bot</h3>
+        <p>Created a bot that sends messages with information about Multiple different sports into a Discord channel</p>
+        <div class="project-card__tags">
+          <span class="tag">Python</span>
+          <span class="tag">Terminal</span>
+          <span class="tag">cron jobs</span>
+        </div>
       </div>
-    </div>
+    </a>
 
-    <div class="project-card reveal">
-      <span class="project-card__number">06</span>
-      <h3>Summy — AI Summarization Chrome Extension</h3>
-      <p>Built a Chrome extension that leverages multiple AI providers (OpenAI, Anthropic, and DeepSeek) to generate concise summaries of any open browser tab on demand.</p>
-      <div class="project-card__tags">
-        <span class="tag">JavaScript</span>
-        <span class="tag">DeepSeek API</span>
-        <span class="tag">OpenAI API</span>
-        <span class="tag">Anthropic API</span>
-        <span class="tag">HTML / CSS</span>
+    <a href="https://github.com/devdesai10" target="_blank" rel="noopener noreferrer" class="project-card-link reveal">
+      <div class="project-card">
+        <span class="project-card__number">06</span>
+        <h3>Summy — AI Summarization Chrome Extension</h3>
+        <p>Built a Chrome extension that leverages multiple AI providers (OpenAI, Anthropic, and DeepSeek) to generate concise summaries of any open browser tab on demand.</p>
+        <div class="project-card__tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">DeepSeek API</span>
+          <span class="tag">OpenAI API</span>
+          <span class="tag">Anthropic API</span>
+          <span class="tag">HTML / CSS</span>
+        </div>
       </div>
-    </div>
+    </a>
 
   </div>
 </section>
