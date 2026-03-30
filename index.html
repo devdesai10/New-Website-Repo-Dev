@@ -29,8 +29,8 @@
     --text-secondary: #424245;
     --text-muted: #6e6e73;
     --text-dim: #86868b;
-    --accent: #0071e3;
-    --accent-hover: #0077ed;
+    --accent: #7c3aed;
+    --accent-hover: #8b5cf6;
     --green: #34c759;
     --sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   }
@@ -47,8 +47,8 @@
     --text-secondary: #a1a1a6;
     --text-muted: #86868b;
     --text-dim: #6e6e73;
-    --accent: #2997ff;
-    --accent-hover: #40a9ff;
+    --accent: #a78bfa;
+    --accent-hover: #b4a0fb;
     --green: #30d158;
   }
   [data-theme="dark"] nav { background: rgba(0,0,0,0.8); }
@@ -56,9 +56,9 @@
   [data-theme="dark"] .tag { background: rgba(255,255,255,0.08); }
   [data-theme="dark"] .skill-tag:hover { background: var(--text); color: var(--bg); }
   [data-theme="dark"] footer { background: var(--bg-card); }
-  [data-theme="dark"] ::selection { background: rgba(41, 151, 255, 0.3); }
-  [data-theme="dark"] .contact-bubble { box-shadow: 0 4px 20px rgba(41, 151, 255, 0.3); }
-  [data-theme="dark"] .contact-bubble:hover { box-shadow: 0 8px 30px rgba(41, 151, 255, 0.4); }
+  [data-theme="dark"] ::selection { background: rgba(167, 139, 250, 0.3); }
+  [data-theme="dark"] .contact-bubble { box-shadow: 0 4px 20px rgba(167, 139, 250, 0.3); }
+  [data-theme="dark"] .contact-bubble:hover { box-shadow: 0 8px 30px rgba(167, 139, 250, 0.4); }
   @media (max-width: 600px) {
     [data-theme="dark"] .nav-links { background: rgba(0,0,0,0.97); }
     [data-theme="dark"] .nav-links a { color: var(--text); }
@@ -66,7 +66,7 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.47059; letter-spacing: -0.022em; overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; transition: background-color 0.3s, color 0.3s; }
-  ::selection { background: rgba(0, 113, 227, 0.2); color: var(--text); }
+  ::selection { background: rgba(124, 58, 237, 0.2); color: var(--text); }
 
   .glow { display: none; }
 
@@ -99,7 +99,7 @@
 
   .hero__title { font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.045em; margin-bottom: 20px; opacity: 0; animation: fadeUp 0.8s 0.35s forwards; color: var(--text); }
   .hero__title em { font-style: normal; }
-  .typing-wrapper { display: inline; background: linear-gradient(90deg, var(--accent), #2997ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .typing-wrapper { display: inline; background: linear-gradient(90deg, #7c3aed, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .typing-cursor { display: inline-block; width: 3px; height: 0.8em; background: var(--accent); margin-left: 2px; vertical-align: baseline; position: relative; top: 0.05em; animation: blink 0.8s step-end infinite; }
   @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
 
@@ -142,7 +142,7 @@
   .timeline-item { padding-left: 32px; padding-bottom: 40px; position: relative; }
   .timeline-item:last-child { padding-bottom: 0; }
   .timeline-item::before { content: ''; position: absolute; left: -4px; top: 8px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-  .timeline-item:hover::before { transform: scale(1.6); box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.15); }
+  .timeline-item:hover::before { transform: scale(1.6); box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15); }
   .timeline-item__date { font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0; margin-bottom: 4px; font-weight: 500; }
   .timeline-item__role { font-size: 1.2rem; margin-bottom: 2px; font-weight: 600; letter-spacing: -0.02em; }
   .timeline-item__company { color: var(--accent); -webkit-text-fill-color: var(--accent); background: none; -webkit-background-clip: unset; background-clip: unset; font-size: 0.9rem; margin-bottom: 8px; font-weight: 500; }
@@ -197,9 +197,9 @@
   .footer-clock { font-size: 0.75rem; color: var(--text-dim); }
 
   /* Contact Bubble */
-  .contact-bubble { position: fixed; bottom: 28px; right: 28px; z-index: 99; height: 52px; border-radius: 26px; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0; box-shadow: 0 4px 20px rgba(0, 113, 227, 0.25); transition: max-width 0.5s ease, box-shadow 0.5s ease; text-decoration: none; color: #fff; font-size: 1.2rem; padding: 0 16px; overflow: hidden; white-space: nowrap; max-width: 52px; }
+  .contact-bubble { position: fixed; bottom: 28px; right: 28px; z-index: 99; height: 52px; border-radius: 26px; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0; box-shadow: 0 4px 20px rgba(124, 58, 237, 0.25); transition: max-width 0.5s ease, box-shadow 0.5s ease; text-decoration: none; color: #fff; font-size: 1.2rem; padding: 0 16px; overflow: hidden; white-space: nowrap; max-width: 52px; }
   .contact-bubble span { max-width: 0; overflow: hidden; opacity: 0; font-family: var(--sans); font-size: 0.82rem; font-weight: 500; transition: max-width 0.5s ease, opacity 0.5s ease, margin 0.5s ease; margin-left: 0; }
-  .contact-bubble:hover { max-width: 200px; box-shadow: 0 8px 30px rgba(0, 113, 227, 0.35); }
+  .contact-bubble:hover { max-width: 200px; box-shadow: 0 8px 30px rgba(124, 58, 237, 0.35); }
   .contact-bubble:hover span { max-width: 120px; opacity: 1; margin-left: 8px; }
 
   /* Theme toggle */
