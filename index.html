@@ -725,17 +725,11 @@
     });
   }
 
-  // GMT-5 live clock
+  // Eastern Time live clock (auto handles EST/EDT)
   function updateClock() {
     var now = new Date();
-    var utc = now.getTime() + now.getTimezoneOffset() * 60000;
-    var gmt5 = new Date(utc - 5 * 3600000);
-    var h = gmt5.getHours();
-    var m = gmt5.getMinutes();
-    var s = gmt5.getSeconds();
-    var ampm = h >= 12 ? 'PM' : 'AM';
-    h = h % 12 || 12;
-    var time = h + ':' + (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s + ' ' + ampm + ' GMT-5';
+    var options = { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true, timeZone: 'America/New_York', timeZoneName: 'short' };
+    var time = now.toLocaleTimeString('en-US', options);
     document.getElementById('footer-clock').textContent = time;
   }
   updateClock();
