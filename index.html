@@ -92,10 +92,10 @@
   .contact-links .btn { min-width: 140px; }
 
   /* Hero — full-bleed photo with text overlay */
-  .hero { min-height: 120vh; display: flex; align-items: flex-end; padding: 0; position: relative; overflow: hidden; }
-  .hero .container { position: relative; z-index: 2; padding-bottom: 80px; padding-top: 200px; }
-  .hero__photo { position: absolute; inset: 0; z-index: 0; opacity: 0; animation: fadeIn 1s 0.1s forwards; }
-  .hero__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; border-radius: 0; border: none; box-shadow: none; display: block; }
+  .hero { min-height: 100vh; display: flex; align-items: flex-end; padding: 0; position: relative; overflow: hidden; }
+  .hero .container { position: relative; z-index: 2; padding-bottom: 80px; padding-top: 120px; }
+  .hero__photo { position: absolute; inset: -192px 0 0 0; z-index: 0; opacity: 0; animation: fadeIn 1s 0.1s forwards; }
+  .hero__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; border-radius: 0; border: none; box-shadow: none; display: block; }
   .hero__photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(var(--hero-fade-rgb), 0) 35%, rgba(var(--hero-fade-rgb), 0.3) 55%, rgba(var(--hero-fade-rgb), 0.8) 75%, rgba(var(--hero-fade-rgb), 1) 90%); pointer-events: none; }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   .hero__label { font-size: 0.8rem; color: var(--green); letter-spacing: 0; text-transform: none; margin-bottom: 16px; opacity: 0; animation: fadeUp 0.8s 0.4s forwards; display: flex; align-items: center; gap: 8px; font-weight: 500; }
