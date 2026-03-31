@@ -725,11 +725,21 @@
     });
   }
 
-  // Eastern Time live clock (auto handles EST/EDT)
+  // Eastern Time live clock (displayed as GMT offset)
   function updateClock() {
     var now = new Date();
-    var options = { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true, timeZone: 'America/New_York', timeZoneName: 'short' };
-    var time = now.toLocaleTimeString('en-US', options);
+    var eastern = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+    var h = eastern.getHours();
+    var m = eastern.getMinutes();
+    var s = eastern.getSeconds();
+    var ampm = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12;
+    var utcOffset = eastern.getTimezoneOffset !== undefined ? Math.round((now - eastern) / 3600000) : -5;
+    var jan = new Date(now.getFullYear(), 0, 1);
+    var jul = new Date(now.getFullYear(), 6, 1);
+    var isDST = now.toLocaleString('en-US', { timeZone: 'America/New_York', timeZoneName: 'short' }).includes('EDT');
+    var gmtLabel = isDST ? 'GMT-4' : 'GMT-5';
+    var time = h + ':' + (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s + ' ' + ampm + ' ' + gmtLabel;
     document.getElementById('footer-clock').textContent = time;
   }
   updateClock();
