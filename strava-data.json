@@ -1,9 +1,16 @@
 {
-  "name": "Check out my workouts on Strava!",
-  "type": "Run",
-  "distance": 0,
-  "moving_time": 0,
+  "name": "Night Workout",
+  "type": "Workout",
+  "sport_type": "Workout",
+  "distance": 0.0,
+  "moving_time": 181,
   "total_elevation_gain": 0,
-  "start_date_local": "",
-  "id": 0
+  "start_date_local": "2026-04-19T23:46:55Z",
+  "id": 18183087455,
+  "average_speed": 0.0,
+  "max_speed": 0.0,
+  "average_heartrate": 118.3,
+  "max_heartrate": 134.0,
+  "kudos_count": 1,
+  "elapsed_time": 181
 }
