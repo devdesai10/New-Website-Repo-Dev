@@ -1,16 +1,16 @@
 {
-  "name": "Night Workout",
-  "type": "Workout",
-  "sport_type": "Workout",
+  "name": "Night Weight Training",
+  "type": "WeightTraining",
+  "sport_type": "WeightTraining",
   "distance": 0.0,
-  "moving_time": 394,
+  "moving_time": 960,
   "total_elevation_gain": 0,
-  "start_date_local": "2026-04-21T22:03:06Z",
-  "id": 18203335175,
+  "start_date_local": "2026-04-21T21:46:47Z",
+  "id": 18203165948,
   "average_speed": 0.0,
   "max_speed": 0.0,
-  "average_heartrate": 114.4,
-  "max_heartrate": 137.0,
+  "average_heartrate": 146.9,
+  "max_heartrate": 166.0,
   "kudos_count": 3,
-  "elapsed_time": 394
+  "elapsed_time": 960
 }
