@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Devan Desai | Portfolio</title>
-<!-- Security Headers added by Kiro-->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https://dgtzuqphqg23d.cloudfront.net https://d3nn82uaxijpm6.cloudfront.net https://*.strava.com; script-src 'self' 'nonce-portfolio2025' https://strava-embeds.com; connect-src 'self' https://www.strava.com https://strava-embeds.com; frame-src https://www.strava.com https://strava-embeds.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="X-Frame-Options" content="DENY">
@@ -187,33 +186,53 @@
   .project-card__hint { position: absolute; top: 28px; right: 28px; font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0; transition: color 0.3s; z-index: 1; font-weight: 500; }
   .project-card-link:hover .project-card__hint { color: var(--accent); }
 
-  /* Strava / Stay Active */
-  .strava-section { padding: 100px 0; }
-  .strava-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-  .strava-card { background: var(--bg-card); border-radius: 18px; padding: 32px; transition: all 0.3s; }
-  .strava-card:hover { background: var(--bg-card-hover); }
-  .strava-card__header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-  .strava-card__icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(252, 76, 2, 0.12); color: #fc4c02; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
-  .strava-card__header h3 { font-size: 1.1rem; font-weight: 600; letter-spacing: -0.02em; }
-  .strava-card__header p { font-size: 0.75rem; color: var(--text-dim); margin-top: 2px; }
-  .strava-profile-link { display: inline-flex; align-items: center; gap: 8px; color: #fc4c02; text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: opacity 0.3s; margin-top: 16px; }
+  /* Strava / Stay Active — Apple-inspired */
+  .strava-section { padding: 120px 0 100px; }
+  .strava-hero-text { text-align: center; max-width: 680px; margin: 0 auto 64px; }
+  .strava-hero-text .section__label { text-align: center; }
+  .strava-hero-text .section__heading { text-align: center; font-size: clamp(2.4rem, 5vw, 3.6rem); margin-bottom: 16px; }
+  .strava-hero-text .strava-subtitle { color: var(--text-muted); font-size: 1.15rem; line-height: 1.5; letter-spacing: -0.01em; }
+
+  .strava-showcase { background: var(--bg-card); border-radius: 28px; padding: 56px 48px; max-width: 860px; margin: 0 auto; position: relative; overflow: hidden; }
+  .strava-showcase::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 200px; height: 3px; background: linear-gradient(90deg, transparent, #fc4c02, transparent); border-radius: 2px; }
+
+  .strava-showcase__top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px; }
+  .strava-showcase__badge { display: inline-flex; align-items: center; gap: 8px; font-size: 0.78rem; font-weight: 600; color: #fc4c02; letter-spacing: 0.02em; text-transform: uppercase; }
+  .strava-showcase__badge i { font-size: 1rem; }
+  .strava-showcase__date { font-size: 0.78rem; color: var(--text-dim); font-weight: 500; }
+
+  .strava-activity-name { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; letter-spacing: -0.035em; line-height: 1.15; margin-bottom: 32px; color: var(--text); }
+
+  .strava-stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0; border-top: 1px solid var(--border-subtle); }
+  .strava-stat-cell { padding: 28px 0; border-right: 1px solid var(--border-subtle); text-align: center; }
+  .strava-stat-cell:last-child { border-right: none; }
+  .strava-stat-cell__value { font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 700; letter-spacing: -0.03em; color: var(--text); line-height: 1.2; }
+  .strava-stat-cell__label { font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 6px; font-weight: 500; }
+
+  .strava-showcase__bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-subtle); }
+  .strava-view-link { display: inline-flex; align-items: center; gap: 6px; color: #fc4c02; text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: gap 0.3s, opacity 0.3s; }
+  .strava-view-link:hover { gap: 10px; opacity: 0.8; }
+  .strava-view-link i { font-size: 1rem; transition: transform 0.3s; }
+  .strava-view-link:hover i { transform: translateX(2px); }
+
+  .strava-powered { display: flex; align-items: center; gap: 6px; font-size: 0.72rem; color: var(--text-dim); }
+  .strava-powered svg { width: 14px; height: 14px; }
+
+  .strava-profile-row { text-align: center; margin-top: 40px; }
+  .strava-profile-link { display: inline-flex; align-items: center; gap: 8px; color: #fc4c02; text-decoration: none; font-size: 0.92rem; font-weight: 500; transition: opacity 0.3s; }
   .strava-profile-link:hover { opacity: 0.7; }
-  .strava-activity { margin-top: 8px; }
-  .strava-activity__name { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.02em; }
-  .strava-activity__stats { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 12px; }
-  .strava-stat { text-align: left; }
-  .strava-stat__value { font-size: 1.2rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
-  .strava-stat__label { font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.02em; margin-top: 2px; }
-  .strava-activity__date { font-size: 0.75rem; color: var(--text-dim); margin-top: 8px; }
-  .strava-activity__type { display: inline-block; font-size: 0.72rem; padding: 4px 10px; border-radius: 980px; background: rgba(252, 76, 2, 0.1); color: #fc4c02; font-weight: 500; margin-bottom: 12px; }
-  .strava-loading { color: var(--text-muted); font-size: 0.88rem; padding: 20px 0; }
-  .strava-refresh-note { font-size: 0.72rem; color: var(--text-dim); margin-top: 16px; display: flex; align-items: center; gap: 6px; }
-  .strava-powered { display: flex; align-items: center; gap: 6px; font-size: 0.72rem; color: var(--text-dim); margin-top: 20px; }
-  .strava-powered svg { width: 16px; height: 16px; }
-  .strava-embed-container { margin-top: 12px; }
-  .strava-embed-container iframe { border: none; border-radius: 12px; width: 100%; }
-  @media (max-width: 900px) {
-    .strava-grid { grid-template-columns: 1fr; }
+
+  .strava-loading { color: var(--text-muted); font-size: 1rem; text-align: center; padding: 40px 0; }
+
+  @media (max-width: 700px) {
+    .strava-showcase { padding: 40px 24px; border-radius: 22px; }
+    .strava-showcase__top { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .strava-stats-row { grid-template-columns: 1fr 1fr; }
+    .strava-stat-cell { border-right: none; border-bottom: 1px solid var(--border-subtle); text-align: left; padding: 20px 4px; }
+    .strava-stat-cell:nth-child(odd) { border-right: 1px solid var(--border-subtle); }
+    .strava-stat-cell:nth-last-child(-n+2) { border-bottom: none; }
+    .strava-stat-cell:last-child:nth-child(odd) { border-right: none; }
+    .strava-showcase__bottom { flex-direction: column; align-items: flex-start; gap: 16px; }
   }
 
   /* Contact */
@@ -656,45 +675,22 @@
 <!-- Stay Active With Me — Strava -->
 <section id="strava" class="strava-section">
   <div class="container">
-    <p class="section__label reveal">Stay active with me</p>
-    <h2 class="section__heading reveal">Latest workout.</h2>
-    <div class="strava-grid">
-      <!-- Latest Activity Card -->
-      <div class="strava-card reveal">
-        <div class="strava-card__header">
-          <div class="strava-card__icon"><i class="ri-run-line"></i></div>
-          <div>
-            <h3>Latest Activity</h3>
-            <p id="strava-last-updated">Checking Strava...</p>
-          </div>
-        </div>
-        <div id="strava-activity" class="strava-activity">
-          <div class="strava-loading">Loading latest workout...</div>
-        </div>
-        <div class="strava-refresh-note">
-          <i class="ri-refresh-line"></i> Auto-refreshes every 3 hours
-        </div>
+    <div class="strava-hero-text reveal">
+      <p class="section__label">Stay active with me</p>
+      <h2 class="section__heading">Latest workout.</h2>
+      <p class="strava-subtitle">I believe staying active fuels better work. Here's what I've been up to lately.</p>
+    </div>
+
+    <div class="strava-showcase reveal" id="strava-showcase">
+      <div id="strava-activity">
+        <div class="strava-loading">Loading latest workout...</div>
       </div>
-      <!-- Strava Profile Card -->
-      <div class="strava-card reveal">
-        <div class="strava-card__header">
-          <div class="strava-card__icon"><i class="ri-riding-line"></i></div>
-          <div>
-            <h3>Strava Profile</h3>
-            <p>Follow my training</p>
-          </div>
-        </div>
-        <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-bottom: 16px;">
-          I track all my runs, rides, and workouts on Strava. Follow along to see what I'm up to and stay motivated together.
-        </p>
-        <a href="https://www.strava.com/athletes/123430821" target="_blank" rel="noopener noreferrer" class="strava-profile-link">
-          View my Strava profile <i class="ri-arrow-right-up-line"></i>
-        </a>
-        <div class="strava-powered">
-          <svg viewBox="0 0 24 24" fill="#fc4c02"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>
-          Powered by Strava
-        </div>
-      </div>
+    </div>
+
+    <div class="strava-profile-row reveal">
+      <a href="https://www.strava.com/athletes/123430821" target="_blank" rel="noopener noreferrer" class="strava-profile-link">
+        Follow me on Strava <i class="ri-arrow-right-up-line"></i>
+      </a>
     </div>
   </div>
 </section>
@@ -826,7 +822,6 @@
   // Strava latest activity — reads from strava-data.json (updated by GitHub Actions every 3 hours)
   (function() {
     var activityContainer = document.getElementById('strava-activity');
-    var lastUpdatedEl = document.getElementById('strava-last-updated');
 
     function formatDuration(seconds) {
       if (!seconds) return '--';
@@ -864,41 +859,61 @@
       var icon = typeIcons[activity.type] || 'ri-run-line';
       var typeName = activity.type ? activity.type.replace(/([A-Z])/g, ' $1').trim() : 'Workout';
 
-      var html = '<span class="strava-activity__type"><i class="' + icon + '"></i> ' + typeName + '</span>';
-      html += '<div class="strava-activity__name">' + (activity.name || 'Untitled Activity') + '</div>';
-      html += '<div class="strava-activity__stats">';
+      var html = '';
+
+      // Top row: badge + date
+      html += '<div class="strava-showcase__top">';
+      html += '<div class="strava-showcase__badge"><i class="' + icon + '"></i> ' + typeName + '</div>';
+      if (activity.start_date_local) {
+        html += '<div class="strava-showcase__date">' + formatDate(activity.start_date_local) + '</div>';
+      }
+      html += '</div>';
+
+      // Activity name — large headline
+      html += '<div class="strava-activity-name">' + (activity.name || 'Untitled Activity') + '</div>';
+
+      // Stats row — Apple grid style
+      html += '<div class="strava-stats-row">';
 
       if (activity.distance && activity.distance > 0) {
-        html += '<div class="strava-stat"><div class="strava-stat__value">' + formatDistance(activity.distance) + '</div><div class="strava-stat__label">Distance</div></div>';
+        html += '<div class="strava-stat-cell"><div class="strava-stat-cell__value">' + formatDistance(activity.distance) + '</div><div class="strava-stat-cell__label">Distance</div></div>';
       }
       if (activity.moving_time) {
-        html += '<div class="strava-stat"><div class="strava-stat__value">' + formatDuration(activity.moving_time) + '</div><div class="strava-stat__label">Duration</div></div>';
+        html += '<div class="strava-stat-cell"><div class="strava-stat-cell__value">' + formatDuration(activity.moving_time) + '</div><div class="strava-stat-cell__label">Duration</div></div>';
       }
       if (activity.distance > 0 && activity.moving_time && ['Run','Walk','Hike'].indexOf(activity.type) !== -1) {
-        html += '<div class="strava-stat"><div class="strava-stat__value">' + formatPace(activity.moving_time, activity.distance) + '</div><div class="strava-stat__label">Pace</div></div>';
+        html += '<div class="strava-stat-cell"><div class="strava-stat-cell__value">' + formatPace(activity.moving_time, activity.distance) + '</div><div class="strava-stat-cell__label">Pace</div></div>';
       }
       if (activity.total_elevation_gain && activity.total_elevation_gain > 0) {
-        html += '<div class="strava-stat"><div class="strava-stat__value">' + Math.round(activity.total_elevation_gain * 3.28084) + ' ft</div><div class="strava-stat__label">Elevation</div></div>';
+        html += '<div class="strava-stat-cell"><div class="strava-stat-cell__value">' + Math.round(activity.total_elevation_gain * 3.28084) + ' ft</div><div class="strava-stat-cell__label">Elevation</div></div>';
       }
       if (activity.average_heartrate) {
-        html += '<div class="strava-stat"><div class="strava-stat__value">' + Math.round(activity.average_heartrate) + ' bpm</div><div class="strava-stat__label">Avg HR</div></div>';
+        html += '<div class="strava-stat-cell"><div class="strava-stat-cell__value">' + Math.round(activity.average_heartrate) + ' bpm</div><div class="strava-stat-cell__label">Avg Heart Rate</div></div>';
+      }
+      if (activity.max_heartrate) {
+        html += '<div class="strava-stat-cell"><div class="strava-stat-cell__value">' + Math.round(activity.max_heartrate) + ' bpm</div><div class="strava-stat-cell__label">Max Heart Rate</div></div>';
+      }
+      if (activity.kudos_count !== undefined) {
+        html += '<div class="strava-stat-cell"><div class="strava-stat-cell__value">' + activity.kudos_count + '</div><div class="strava-stat-cell__label">Kudos</div></div>';
       }
 
       html += '</div>';
-      if (activity.start_date_local) {
-        html += '<div class="strava-activity__date">' + formatDate(activity.start_date_local) + '</div>';
-      }
+
+      // Bottom row: view link + powered by
+      html += '<div class="strava-showcase__bottom">';
       if (activity.id) {
-        html += '<a href="https://www.strava.com/activities/' + activity.id + '" target="_blank" rel="noopener noreferrer" class="strava-profile-link" style="margin-top:12px;">View on Strava <i class="ri-arrow-right-up-line"></i></a>';
+        html += '<a href="https://www.strava.com/activities/' + activity.id + '" target="_blank" rel="noopener noreferrer" class="strava-view-link">View on Strava <i class="ri-arrow-right-line"></i></a>';
       }
+      html += '<div class="strava-powered"><svg viewBox="0 0 24 24" fill="#fc4c02"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg> Powered by Strava</div>';
+      html += '</div>';
 
       activityContainer.innerHTML = html;
     }
 
     function renderFallback() {
-      activityContainer.innerHTML = '<div class="strava-activity__name">Check out my latest workouts!</div>' +
-        '<p style="color:var(--text-muted);font-size:0.88rem;line-height:1.6;">Visit my Strava profile to see what I have been up to lately.</p>';
-      lastUpdatedEl.textContent = '';
+      activityContainer.innerHTML = '<div class="strava-showcase__top"><div class="strava-showcase__badge"><i class="ri-heart-pulse-line"></i> Workout</div></div>' +
+        '<div class="strava-activity-name">Check out my latest workouts!</div>' +
+        '<p style="color:var(--text-muted);font-size:1rem;line-height:1.6;">Visit my Strava profile to see what I\'ve been up to lately.</p>';
     }
 
     // Fetch the static JSON file (updated by GitHub Actions every 3 hours)
@@ -907,9 +922,6 @@
       .then(function(activity) {
         if (activity && activity.name && activity.id) {
           renderActivity(activity);
-          if (activity.start_date_local) {
-            lastUpdatedEl.textContent = 'Last workout: ' + formatDate(activity.start_date_local);
-          }
         } else {
           renderFallback();
         }
