@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Devan Desai | Portfolio</title>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https://dgtzuqphqg23d.cloudfront.net https://d3nn82uaxijpm6.cloudfront.net https://*.strava.com; script-src 'self' 'nonce-portfolio2025' https://strava-embeds.com; connect-src 'self' https://www.strava.com https://strava-embeds.com; frame-src https://www.strava.com https://strava-embeds.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https://dgtzuqphqg23d.cloudfront.net https://d3nn82uaxijpm6.cloudfront.net https://*.strava.com https://images.unsplash.com https://*.cdninstagram.com https://scontent*.cdninstagram.com; script-src 'self' 'nonce-portfolio2025' https://strava-embeds.com; connect-src 'self' https://www.strava.com https://strava-embeds.com; frame-src https://www.strava.com https://strava-embeds.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="X-Frame-Options" content="DENY">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -292,9 +292,497 @@
     .about-photos { grid-template-columns: 1fr; }
     .about-photos img.wide { grid-column: span 1; }
   }
+
+  /* ===== Photography Section — Sliding Door Transition ===== */
+
+  /* The photography layer sits behind the main page */
+  #photo-world {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: #0a0a0a;
+    color: #f5f5f7;
+    overflow-y: auto;
+    overflow-x: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s 0.3s;
+  }
+  #photo-world.active {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.1s 0s;
+  }
+
+  /* Main page splits into two doors */
+  #main-page {
+    position: relative;
+    z-index: 2;
+    background: var(--bg);
+  }
+
+  /* The two door halves */
+  .door-left,
+  .door-right {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    z-index: 50;
+    overflow: hidden;
+    pointer-events: none;
+    transition: transform 0.85s cubic-bezier(0.76, 0, 0.24, 1);
+    will-change: transform;
+  }
+  .door-left { left: 0; transform: translateX(0); visibility: hidden; }
+  .door-right { right: 0; transform: translateX(0); visibility: hidden; }
+
+  .door-left > .door-inner,
+  .door-right > .door-inner {
+    position: absolute;
+    top: 0;
+    width: 200vw;
+    min-height: 100vh;
+    pointer-events: none;
+  }
+  .door-left > .door-inner { left: 0; }
+  .door-right > .door-inner { right: 0; }
+
+  /* When doors are open */
+  body.doors-open .door-left { transform: translateX(-100%); }
+  body.doors-open .door-right { transform: translateX(100%); }
+  body.doors-open nav { z-index: 200; }
+
+  /* Main page hidden state — controlled by JS class */
+  #main-page.hidden { pointer-events: none; visibility: hidden; }
+
+  /* Photography nav override when in photo mode */
+  body.doors-open nav {
+    background: rgba(10, 10, 10, 0.85);
+    border-bottom-color: rgba(255,255,255,0.08);
+  }
+  body.doors-open .logo { color: #f5f5f7; }
+  body.doors-open .nav-links a { color: rgba(255,255,255,0.5); }
+  body.doors-open .nav-links a:hover { color: #fff; }
+  body.doors-open .nav-toggle { color: rgba(255,255,255,0.5); }
+  body.doors-open .theme-toggle { color: rgba(255,255,255,0.5); }
+  body.doors-open .contact-bubble { display: none; }
+
+  /* Photo back button */
+  .photo-back-btn {
+    display: none;
+    position: fixed;
+    top: 10px;
+    left: 22px;
+    z-index: 210;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.6);
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 14px;
+    border-radius: 980px;
+    transition: all 0.3s;
+    letter-spacing: -0.01em;
+    gap: 6px;
+    align-items: center;
+  }
+  .photo-back-btn:hover { color: #fff; background: rgba(255,255,255,0.08); }
+  body.doors-open .photo-back-btn { display: inline-flex; }
+
+  /* Photography world inner styles */
+  .photo-container { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+
+  .photo-hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 120px 28px 80px;
+    position: relative;
+  }
+  .photo-hero__label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 24px;
+  }
+  .photo-hero__title {
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    color: #fff;
+    margin-bottom: 24px;
+  }
+  .photo-hero__subtitle {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.45);
+    max-width: 480px;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+  .photo-hero__scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,0.2);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .photo-hero__scroll::after {
+    content: '';
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+    animation: scrollPulse 2s infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  /* Photo gallery grid */
+  .photo-gallery { padding: 80px 0 120px; }
+  .photo-gallery__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 48px;
+    padding: 0 28px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .photo-gallery__label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 8px;
+  }
+  .photo-gallery__title {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: #fff;
+  }
+  .photo-gallery__count {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+    font-weight: 500;
+  }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 8px;
+    padding: 0 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .photo-grid__item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    background: #1a1a1a;
+  }
+  .photo-grid__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1), filter 0.6s;
+    filter: brightness(0.85);
+  }
+  .photo-grid__item:hover img {
+    transform: scale(1.04);
+    filter: brightness(1);
+  }
+  .photo-grid__item--wide { grid-column: span 8; aspect-ratio: 16/9; }
+  .photo-grid__item--tall { grid-column: span 4; aspect-ratio: 3/4; }
+  .photo-grid__item--square { grid-column: span 4; aspect-ratio: 1/1; }
+  .photo-grid__item--half { grid-column: span 6; aspect-ratio: 4/3; }
+  .photo-grid__item--full { grid-column: span 12; aspect-ratio: 21/9; }
+
+  .photo-grid__item__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+  }
+  .photo-grid__item:hover .photo-grid__item__overlay { opacity: 1; }
+  .photo-grid__item__caption {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  .photo-grid__item__meta {
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.45);
+    margin-top: 4px;
+  }
+
+  /* Photo process section */
+  .photo-process { padding: 100px 0; }
+  .photo-process__header { text-align: center; margin-bottom: 64px; }
+  .photo-process__title {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: #fff;
+  }
+  .photo-process__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .photo-process__card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+    padding: 36px 28px;
+    transition: all 0.4s;
+  }
+  .photo-process__card:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(255,255,255,0.1);
+    transform: translateY(-4px);
+  }
+  .photo-process__num {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+  .photo-process__card h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+  .photo-process__card p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+  }
+
+  /* Photo CTA */
+  .photo-cta {
+    text-align: center;
+    padding: 120px 28px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .photo-cta__title {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .photo-cta__text {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 32px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+  .photo-cta__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 980px;
+    background: #fff;
+    color: #0a0a0a;
+    text-decoration: none;
+    font-family: var(--sans);
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+  }
+  .photo-cta__btn:hover { transform: scale(1.03); box-shadow: 0 8px 30px rgba(255,255,255,0.15); }
+
+  .photo-footer {
+    padding: 24px 28px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    text-align: center;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.2);
+  }
+
+  /* Photography nav trigger */
+  .nav-photo-trigger {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 400;
+    transition: color 0.3s;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: var(--sans);
+    padding: 0;
+  }
+  .nav-photo-trigger:hover { color: var(--text); }
+  body.doors-open .nav-photo-trigger { color: #fff; }
+
+  /* Lightbox */
+  .photo-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    background: rgba(0,0,0,0.95);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .photo-lightbox.active { display: flex; }
+  .photo-lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  .photo-lightbox__close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.6);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 8px;
+    transition: color 0.3s;
+  }
+  .photo-lightbox__close:hover { color: #fff; }
+
+  @media (max-width: 700px) {
+    .photo-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
+    .photo-grid__item--wide,
+    .photo-grid__item--full { grid-column: span 2; }
+    .photo-grid__item--tall,
+    .photo-grid__item--square,
+    .photo-grid__item--half { grid-column: span 1; }
+    .photo-process__grid { grid-template-columns: 1fr; }
+    .photo-gallery__header { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .photo-back-btn { top: 10px; left: 12px; }
+  }
 </style>
 </head>
 <body>
+
+<!-- Photography Back Button (visible when photo world is open) -->
+<button class="photo-back-btn" id="photo-back-btn"><i class="ri-arrow-left-s-line"></i> Back to Portfolio</button>
+
+<!-- Sliding Door Halves (cloned from main page via JS) -->
+<div class="door-left" id="door-left"><div class="door-inner"></div></div>
+<div class="door-right" id="door-right"><div class="door-inner"></div></div>
+
+<!-- Photography World (sits behind the doors) -->
+<div id="photo-world">
+  <div class="photo-hero">
+    <div class="photo-hero__label">Photography</div>
+    <h1 class="photo-hero__title">Through<br>my lens.</h1>
+    <p class="photo-hero__subtitle">Capturing light, texture, and quiet moments. A personal collection of the world as I see it.</p>
+    <div class="photo-hero__scroll">Scroll</div>
+  </div>
+
+  <div class="photo-gallery">
+    <div class="photo-gallery__header">
+      <div>
+        <div class="photo-gallery__label">Selected Work</div>
+        <h2 class="photo-gallery__title">Featured shots.</h2>
+      </div>
+      <div class="photo-gallery__count" id="photo-count"></div>
+    </div>
+    <div class="photo-grid" id="photo-grid">
+      <!-- Loaded dynamically from photos.json -->
+    </div>
+  </div>
+
+  <div class="photo-process">
+    <div class="photo-container">
+      <div class="photo-process__header">
+        <div class="photo-gallery__label">Process</div>
+        <h2 class="photo-process__title">How I shoot.</h2>
+      </div>
+      <div class="photo-process__grid">
+        <div class="photo-process__card">
+          <div class="photo-process__num">001</div>
+          <h3>Observe</h3>
+          <p>Before reaching for the camera, I spend time with the scene. Understanding the light, the mood, and what makes the moment worth capturing.</p>
+        </div>
+        <div class="photo-process__card">
+          <div class="photo-process__num">002</div>
+          <h3>Compose</h3>
+          <p>Every frame is intentional. I focus on clean lines, natural balance, and letting the subject breathe within the composition.</p>
+        </div>
+        <div class="photo-process__card">
+          <div class="photo-process__num">003</div>
+          <h3>Refine</h3>
+          <p>Minimal editing to preserve authenticity. Color grading, contrast adjustments, and careful cropping to deliver the final image.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="photo-cta">
+    <h2 class="photo-cta__title">Like what you see?</h2>
+    <p class="photo-cta__text">Follow my photography journey on Instagram or reach out for collaborations.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://www.instagram.com/devst2i/" target="_blank" rel="noopener noreferrer" class="photo-cta__btn">
+        <i class="ri-instagram-line"></i> @devst2i
+      </a>
+      <a href="#contact" class="photo-cta__btn" id="photo-contact-btn" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.2);">
+        Get in touch <i class="ri-arrow-right-up-line"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="photo-footer">
+    &copy; 2026 Devan Desai · Photography
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="photo-lightbox" id="photo-lightbox">
+  <button class="photo-lightbox__close" aria-label="Close lightbox"><i class="ri-close-line"></i></button>
+  <img src="" alt="Full size photo" id="lightbox-img">
+</div>
+
+<!-- Main Portfolio Page -->
+<div id="main-page">
 
 <div class="glow glow--1"></div>
 <div class="glow glow--2"></div>
@@ -304,7 +792,7 @@
 <!-- Nav -->
 <nav>
   <div class="container">
-    <a href="#" class="logo">Devan<span>.</span></a>
+    <a href="#" class="logo" id="logo-link">Devan<span>.</span></a>
     <div style="display:flex;align-items:center;gap:8px;">
       <button class="theme-toggle theme-toggle--mobile" id="theme-toggle-mobile" aria-label="Toggle dark mode">
         <i class="ri-moon-line"></i>
@@ -319,6 +807,7 @@
       <li><a href="#experience" class="nav-close-link">Experience</a></li>
       <li><a href="#projects" class="nav-close-link">Projects</a></li>
       <li><a href="#certs" class="nav-close-link">Certifications</a></li>
+      <li><button class="nav-photo-trigger nav-close-link" id="photo-trigger-nav" aria-label="Photography">Photography</button></li>
       <li><a href="#strava" class="nav-close-link" aria-label="Strava"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px;"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg></a></li>
       <li><a href="#contact" class="nav-close-link">Contact</a></li>
       <li><a href="https://docs.google.com/document/d/1sfXfAEByiqKkD9c1fUIVtKffkp7KItv37qcC9-pTcy0/export?format=pdf" download="Devan_Desai_Resume.pdf">Resume</a></li>
@@ -719,6 +1208,7 @@
     <p>Created by the Chipotle Support Bot (iykyk)</p>
   </div>
 </footer>
+</div><!-- end #main-page -->
 
 <script nonce="portfolio2025">
   // Theme toggle — respects system preference, persists choice
@@ -927,6 +1417,198 @@
         }
       })
       .catch(function() { renderFallback(); });
+  })();
+
+  // ===== Photography — Load photos from photos.json =====
+  (function() {
+    var grid = document.getElementById('photo-grid');
+    var countEl = document.getElementById('photo-count');
+    var lightbox = document.getElementById('photo-lightbox');
+    var lightboxImg = document.getElementById('lightbox-img');
+
+    // Layout cycle for auto-assigning grid sizes
+    var layoutCycle = ['wide', 'tall', 'square', 'half', 'half', 'full'];
+
+    function renderPhotos(photos) {
+      if (!photos || !photos.length) return;
+      countEl.textContent = photos.length + ' photo' + (photos.length !== 1 ? 's' : '');
+
+      var html = '';
+      photos.forEach(function(photo, i) {
+        var layout = photo.layout || layoutCycle[i % layoutCycle.length];
+        html += '<div class="photo-grid__item photo-grid__item--' + layout + '">';
+        html += '<img src="' + photo.src + '" alt="' + (photo.alt || '') + '" loading="lazy">';
+        if (photo.caption || photo.meta) {
+          html += '<div class="photo-grid__item__overlay"><div>';
+          if (photo.caption) html += '<div class="photo-grid__item__caption">' + photo.caption + '</div>';
+          if (photo.meta) html += '<div class="photo-grid__item__meta">' + photo.meta + '</div>';
+          html += '</div></div>';
+        }
+        html += '</div>';
+      });
+      grid.innerHTML = html;
+
+      // Attach lightbox listeners to new images
+      grid.querySelectorAll('.photo-grid__item img').forEach(function(img) {
+        img.addEventListener('click', function() {
+          lightboxImg.src = this.src;
+          lightboxImg.alt = this.alt;
+          lightbox.classList.add('active');
+        });
+      });
+    }
+
+    fetch('photos.json?v=' + Date.now())
+      .then(function(res) { return res.json(); })
+      .then(function(photos) { renderPhotos(photos); })
+      .catch(function() {
+        grid.innerHTML = '<p style="color:rgba(255,255,255,0.3);text-align:center;grid-column:1/-1;padding:40px 0;">Photos coming soon.</p>';
+      });
+  })();
+
+  // ===== Photography Sliding Door Transition =====
+  (function() {
+    var photoWorld = document.getElementById('photo-world');
+    var mainPage = document.getElementById('main-page');
+    var doorLeft = document.getElementById('door-left');
+    var doorRight = document.getElementById('door-right');
+    var triggerNav = document.getElementById('photo-trigger-nav');
+    var backBtn = document.getElementById('photo-back-btn');
+    var lightbox = document.getElementById('photo-lightbox');
+    var lightboxImg = document.getElementById('lightbox-img');
+    var lightboxClose = lightbox.querySelector('.photo-lightbox__close');
+    var photoContactBtn = document.getElementById('photo-contact-btn');
+    var isOpen = false;
+
+    function captureSnapshot() {
+      // Take a visual snapshot of the current page for the door panels
+      var scrollY = window.scrollY || window.pageYOffset;
+      var leftInner = doorLeft.querySelector('.door-inner');
+      var rightInner = doorRight.querySelector('.door-inner');
+
+      // Clone the main page content into both door halves
+      leftInner.innerHTML = '';
+      rightInner.innerHTML = '';
+
+      // Use a simple colored overlay instead of cloning (lighter approach)
+      var theme = document.documentElement.getAttribute('data-theme');
+      var bgColor = theme === 'dark' ? '#000000' : '#fbfbfd';
+
+      leftInner.style.background = bgColor;
+      leftInner.style.width = '100vw';
+      leftInner.style.height = '100vh';
+
+      rightInner.style.background = bgColor;
+      rightInner.style.width = '100vw';
+      rightInner.style.height = '100vh';
+    }
+
+    function openPhotography() {
+      if (isOpen) return;
+      isOpen = true;
+
+      captureSnapshot();
+
+      // Show doors over the main page
+      doorLeft.style.visibility = 'visible';
+      doorRight.style.visibility = 'visible';
+
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          // Slide doors apart
+          document.body.classList.add('doors-open');
+          // Hide main page and show photo world once doors start moving
+          mainPage.classList.add('hidden');
+          photoWorld.classList.add('active');
+          photoWorld.scrollTop = 0;
+        });
+      });
+    }
+
+    function closePhotography() {
+      if (!isOpen) return;
+
+      // First: hide the photo world so it's not visible behind closing doors
+      photoWorld.classList.remove('active');
+
+      // Slide doors back to center (they cover the viewport)
+      document.body.classList.remove('doors-open');
+
+      // After doors have fully closed (covering the screen), reveal main page and hide doors
+      setTimeout(function() {
+        mainPage.classList.remove('hidden');
+        // Brief pause to let the main page render, then hide doors
+        requestAnimationFrame(function() {
+          doorLeft.style.visibility = 'hidden';
+          doorRight.style.visibility = 'hidden';
+          isOpen = false;
+        });
+      }, 900);
+    }
+
+    // Trigger from nav
+    if (triggerNav) {
+      triggerNav.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (isOpen) {
+          closePhotography();
+        } else {
+          openPhotography();
+        }
+      });
+    }
+
+    // Back button
+    if (backBtn) {
+      backBtn.addEventListener('click', function() {
+        closePhotography();
+      });
+    }
+
+    // Contact button in photo world — close doors and scroll to contact
+    if (photoContactBtn) {
+      photoContactBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        closePhotography();
+        setTimeout(function() {
+          var contactSection = document.getElementById('contact');
+          if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 950);
+      });
+    }
+
+    // Lightbox close handler
+    if (lightbox) {
+      lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox || e.target === lightboxClose || lightboxClose.contains(e.target)) {
+          lightbox.classList.remove('active');
+        }
+      });
+    }
+
+    // Escape key closes lightbox or photo world
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        if (lightbox.classList.contains('active')) {
+          lightbox.classList.remove('active');
+        } else if (isOpen) {
+          closePhotography();
+        }
+      }
+    });
+
+    // Logo click closes photo world if open
+    var logoLink = document.getElementById('logo-link');
+    if (logoLink) {
+      logoLink.addEventListener('click', function(e) {
+        if (isOpen) {
+          e.preventDefault();
+          closePhotography();
+        }
+      });
+    }
   })();
 </script>
 </body>
