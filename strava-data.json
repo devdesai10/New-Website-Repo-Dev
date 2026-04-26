@@ -1,16 +1,16 @@
 {
-  "name": "Afternoon Run",
+  "name": "Alexandria 5k",
   "type": "Run",
   "sport_type": "Run",
-  "distance": 1797.5,
-  "moving_time": 623,
-  "total_elevation_gain": 7.8,
-  "start_date_local": "2026-04-25T14:13:13Z",
-  "id": 18256758897,
-  "average_speed": 2.885,
-  "max_speed": 4.0,
-  "average_heartrate": 165.0,
-  "max_heartrate": 178.0,
-  "kudos_count": 6,
-  "elapsed_time": 718
+  "distance": 5096.5,
+  "moving_time": 1755,
+  "total_elevation_gain": 24.8,
+  "start_date_local": "2026-04-26T07:06:15Z",
+  "id": 18264644592,
+  "average_speed": 2.904,
+  "max_speed": 5.38,
+  "average_heartrate": 178.0,
+  "max_heartrate": 185.0,
+  "kudos_count": 1,
+  "elapsed_time": 1755
 }
