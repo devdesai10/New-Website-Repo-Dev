@@ -542,50 +542,215 @@
     margin-top: 4px;
   }
 
-  /* Photo process section */
-  .photo-process { padding: 100px 0; }
-  .photo-process__header { text-align: center; margin-bottom: 64px; }
-  .photo-process__title {
+  /* Instagram badge on grid items */
+  .photo-grid__item__ig-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.3s, transform 0.3s, background 0.3s;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .photo-grid__item:hover .photo-grid__item__ig-badge {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .photo-grid__item--has-ig::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 0 transparent;
+    transition: box-shadow 0.3s;
+    border-radius: 12px;
+    pointer-events: none;
+  }
+
+  /* Lightbox "View on Instagram" link */
+  .photo-lightbox__ig-link {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 980px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    box-shadow: 0 4px 20px rgba(221, 42, 123, 0.35);
+    transition: transform 0.3s, box-shadow 0.3s;
+    z-index: 10;
+  }
+  .photo-lightbox__ig-link.visible { display: inline-flex; }
+  .photo-lightbox__ig-link:hover {
+    transform: translateX(-50%) scale(1.04);
+    box-shadow: 0 6px 28px rgba(221, 42, 123, 0.5);
+  }
+
+  /* Photo gear section — icon mark + specs, no photos */
+  .photo-gear { padding: 100px 0; }
+  .photo-gear__header { text-align: center; margin-bottom: 72px; }
+  .photo-gear__title {
     font-size: clamp(1.8rem, 3.5vw, 2.8rem);
     font-weight: 700;
     letter-spacing: -0.04em;
     color: #fff;
   }
-  .photo-process__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+  .photo-gear__subtitle {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: 10px;
+    letter-spacing: -0.01em;
   }
-  .photo-process__card {
+  .photo-gear__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+  .photo-gear__card {
+    display: grid;
+    grid-template-columns: minmax(220px, 34%) 1fr;
+    align-items: stretch;
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 20px;
-    padding: 36px 28px;
-    transition: all 0.4s;
+    border-radius: 22px;
+    overflow: hidden;
+    position: relative;
+    transition: background 0.4s, border-color 0.4s, transform 0.4s;
+    min-height: 220px;
   }
-  .photo-process__card:hover {
-    background: rgba(255,255,255,0.07);
+  .photo-gear__card:hover {
+    background: rgba(255,255,255,0.06);
     border-color: rgba(255,255,255,0.1);
-    transform: translateY(-4px);
+    transform: translateY(-3px);
   }
-  .photo-process__num {
+  /* Brand mark panel on the left */
+  .photo-gear__mark {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 32px 36px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+    border-right: 1px solid rgba(255,255,255,0.06);
+    overflow: hidden;
+  }
+  .photo-gear__mark::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -20%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .photo-gear__icon {
+    font-size: 2.4rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1;
+    position: relative;
+  }
+  .photo-gear__brand {
     font-size: 0.72rem;
-    font-weight: 700;
-    color: rgba(255,255,255,0.2);
-    letter-spacing: 0.05em;
-    margin-bottom: 16px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    position: relative;
   }
-  .photo-process__card h3 {
-    font-size: 1.15rem;
+  .photo-gear__model {
+    font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: #fff;
+    line-height: 1.1;
+    position: relative;
+  }
+  .photo-gear__type {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.02em;
+    position: relative;
+  }
+  .photo-gear__info {
+    padding: 32px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+  }
+  .photo-gear__desc {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    max-width: 520px;
+  }
+  .photo-gear__specs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 28px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    max-width: 520px;
+  }
+  .photo-gear__spec dt {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 4px;
+  }
+  .photo-gear__spec dd {
+    font-size: 0.92rem;
     font-weight: 600;
     color: #fff;
-    letter-spacing: -0.02em;
-    margin-bottom: 10px;
+    letter-spacing: -0.01em;
   }
-  .photo-process__card p {
-    font-size: 0.88rem;
-    color: rgba(255,255,255,0.45);
-    line-height: 1.6;
+
+  @media (max-width: 780px) {
+    .photo-gear__card {
+      grid-template-columns: 1fr;
+      min-height: 0;
+    }
+    .photo-gear__mark {
+      padding: 24px 26px;
+      border-right: none;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .photo-gear__icon { font-size: 1.8rem; }
+    .photo-gear__info { padding: 24px 26px 28px; }
+    .photo-gear__specs { grid-template-columns: 1fr 1fr; gap: 14px 20px; }
   }
 
   /* Photo CTA */
@@ -694,7 +859,6 @@
     .photo-grid__item--tall,
     .photo-grid__item--square,
     .photo-grid__item--half { grid-column: span 1; }
-    .photo-process__grid { grid-template-columns: 1fr; }
     .photo-gallery__header { flex-direction: column; align-items: flex-start; gap: 8px; }
     .photo-back-btn { top: 10px; left: 12px; }
   }
@@ -731,28 +895,70 @@
     </div>
   </div>
 
-  <div class="photo-process">
+  <div class="photo-gear">
     <div class="photo-container">
-      <div class="photo-process__header">
-        <div class="photo-gallery__label">Process</div>
-        <h2 class="photo-process__title">How I shoot.</h2>
+      <div class="photo-gear__header">
+        <div class="photo-gallery__label">Gear</div>
+        <h2 class="photo-gear__title">What I shoot with.</h2>
+        <p class="photo-gear__subtitle">The tools behind every frame.</p>
       </div>
-      <div class="photo-process__grid">
-        <div class="photo-process__card">
-          <div class="photo-process__num">001</div>
-          <h3>Observe</h3>
-          <p>Before reaching for the camera, I spend time with the scene. Understanding the light, the mood, and what makes the moment worth capturing.</p>
-        </div>
-        <div class="photo-process__card">
-          <div class="photo-process__num">002</div>
-          <h3>Compose</h3>
-          <p>Every frame is intentional. I focus on clean lines, natural balance, and letting the subject breathe within the composition.</p>
-        </div>
-        <div class="photo-process__card">
-          <div class="photo-process__num">003</div>
-          <h3>Refine</h3>
-          <p>Minimal editing to preserve authenticity. Color grading, contrast adjustments, and careful cropping to deliver the final image.</p>
-        </div>
+
+      <div class="photo-gear__list">
+
+        <article class="photo-gear__card">
+          <div class="photo-gear__mark">
+            <i class="ri-camera-line photo-gear__icon" aria-hidden="true"></i>
+            <div class="photo-gear__brand">Sony</div>
+            <h3 class="photo-gear__model">A6000</h3>
+            <div class="photo-gear__type">APS-C Mirrorless</div>
+          </div>
+          <div class="photo-gear__info">
+            <p class="photo-gear__desc">Compact, lightweight APS-C mirrorless. Fast hybrid autofocus and a snappy burst mode make it my go-to for travel and everyday shooting.</p>
+            <dl class="photo-gear__specs">
+              <div class="photo-gear__spec"><dt>Sensor</dt><dd>24.3 MP APS-C</dd></div>
+              <div class="photo-gear__spec"><dt>ISO</dt><dd>100 – 25,600</dd></div>
+              <div class="photo-gear__spec"><dt>Burst</dt><dd>11 fps</dd></div>
+              <div class="photo-gear__spec"><dt>Autofocus</dt><dd>179 PDAF points</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="photo-gear__card">
+          <div class="photo-gear__mark">
+            <i class="ri-camera-lens-line photo-gear__icon" aria-hidden="true"></i>
+            <div class="photo-gear__brand">Canon</div>
+            <h3 class="photo-gear__model">EOS Rebel T8i</h3>
+            <div class="photo-gear__type">APS-C DSLR</div>
+          </div>
+          <div class="photo-gear__info">
+            <p class="photo-gear__desc">Modern entry-level DSLR with a DIGIC 8 processor and Dual Pixel AF. Handles both 24 MP stills and 4K video without breaking a sweat.</p>
+            <dl class="photo-gear__specs">
+              <div class="photo-gear__spec"><dt>Sensor</dt><dd>24.1 MP APS-C</dd></div>
+              <div class="photo-gear__spec"><dt>ISO</dt><dd>100 – 25,600</dd></div>
+              <div class="photo-gear__spec"><dt>Video</dt><dd>4K UHD 24p</dd></div>
+              <div class="photo-gear__spec"><dt>Autofocus</dt><dd>45-point all cross-type</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="photo-gear__card">
+          <div class="photo-gear__mark">
+            <i class="ri-camera-lens-line photo-gear__icon" aria-hidden="true"></i>
+            <div class="photo-gear__brand">Canon</div>
+            <h3 class="photo-gear__model">EOS Rebel T2i</h3>
+            <div class="photo-gear__type">APS-C DSLR</div>
+          </div>
+          <div class="photo-gear__info">
+            <p class="photo-gear__desc">The workhorse that started it all. An 18 MP classic DSLR that still produces clean, punchy frames and full HD video fifteen years later.</p>
+            <dl class="photo-gear__specs">
+              <div class="photo-gear__spec"><dt>Sensor</dt><dd>18 MP APS-C</dd></div>
+              <div class="photo-gear__spec"><dt>ISO</dt><dd>100 – 6,400 (ext. 12,800)</dd></div>
+              <div class="photo-gear__spec"><dt>Video</dt><dd>1080p HD</dd></div>
+              <div class="photo-gear__spec"><dt>Burst</dt><dd>3.7 fps</dd></div>
+            </dl>
+          </div>
+        </article>
+
       </div>
     </div>
   </div>
@@ -779,6 +985,9 @@
 <div class="photo-lightbox" id="photo-lightbox">
   <button class="photo-lightbox__close" aria-label="Close lightbox"><i class="ri-close-line"></i></button>
   <img src="" alt="Full size photo" id="lightbox-img">
+  <a href="#" target="_blank" rel="noopener noreferrer" class="photo-lightbox__ig-link" id="lightbox-ig-link">
+    <i class="ri-instagram-line"></i> View on Instagram
+  </a>
 </div>
 
 <!-- Main Portfolio Page -->
@@ -1425,9 +1634,36 @@
     var countEl = document.getElementById('photo-count');
     var lightbox = document.getElementById('photo-lightbox');
     var lightboxImg = document.getElementById('lightbox-img');
+    var lightboxIgLink = document.getElementById('lightbox-ig-link');
 
     // Layout cycle for auto-assigning grid sizes
     var layoutCycle = ['wide', 'tall', 'square', 'half', 'half', 'full'];
+
+    // Minimal HTML-attribute escape for interpolated values
+    function escAttr(s) {
+      return String(s == null ? '' : s)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+    function escText(s) {
+      return String(s == null ? '' : s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+    // Only allow https Instagram URLs to avoid javascript: or other schemes
+    function safeInstagramUrl(url) {
+      if (!url) return '';
+      try {
+        var u = new URL(url, window.location.href);
+        if (u.protocol !== 'https:') return '';
+        if (!/(^|\.)instagram\.com$/i.test(u.hostname)) return '';
+        return u.href;
+      } catch (e) { return ''; }
+    }
 
     function renderPhotos(photos) {
       if (!photos || !photos.length) return;
@@ -1436,12 +1672,20 @@
       var html = '';
       photos.forEach(function(photo, i) {
         var layout = photo.layout || layoutCycle[i % layoutCycle.length];
-        html += '<div class="photo-grid__item photo-grid__item--' + layout + '">';
-        html += '<img src="' + photo.src + '" alt="' + (photo.alt || '') + '" loading="lazy">';
+        var igUrl = safeInstagramUrl(photo.instagramUrl);
+        var hasIg = !!igUrl;
+        var itemClass = 'photo-grid__item photo-grid__item--' + layout + (hasIg ? ' photo-grid__item--has-ig' : '');
+        var igAttr = hasIg ? ' data-ig-url="' + escAttr(igUrl) + '"' : '';
+
+        html += '<div class="' + escAttr(itemClass) + '"' + igAttr + '>';
+        html += '<img src="' + escAttr(photo.src) + '" alt="' + escAttr(photo.alt || '') + '" loading="lazy">';
+        if (hasIg) {
+          html += '<div class="photo-grid__item__ig-badge" aria-hidden="true"><i class="ri-instagram-line"></i></div>';
+        }
         if (photo.caption || photo.meta) {
           html += '<div class="photo-grid__item__overlay"><div>';
-          if (photo.caption) html += '<div class="photo-grid__item__caption">' + photo.caption + '</div>';
-          if (photo.meta) html += '<div class="photo-grid__item__meta">' + photo.meta + '</div>';
+          if (photo.caption) html += '<div class="photo-grid__item__caption">' + escText(photo.caption) + '</div>';
+          if (photo.meta) html += '<div class="photo-grid__item__meta">' + escText(photo.meta) + '</div>';
           html += '</div></div>';
         }
         html += '</div>';
@@ -1449,10 +1693,20 @@
       grid.innerHTML = html;
 
       // Attach lightbox listeners to new images
-      grid.querySelectorAll('.photo-grid__item img').forEach(function(img) {
+      grid.querySelectorAll('.photo-grid__item').forEach(function(item) {
+        var img = item.querySelector('img');
+        if (!img) return;
         img.addEventListener('click', function() {
           lightboxImg.src = this.src;
           lightboxImg.alt = this.alt;
+          var igUrl = item.getAttribute('data-ig-url');
+          if (igUrl) {
+            lightboxIgLink.href = igUrl;
+            lightboxIgLink.classList.add('visible');
+          } else {
+            lightboxIgLink.removeAttribute('href');
+            lightboxIgLink.classList.remove('visible');
+          }
           lightbox.classList.add('active');
         });
       });
@@ -1584,6 +1838,8 @@
       lightbox.addEventListener('click', function(e) {
         if (e.target === lightbox || e.target === lightboxClose || lightboxClose.contains(e.target)) {
           lightbox.classList.remove('active');
+          var igLink = document.getElementById('lightbox-ig-link');
+          if (igLink) igLink.classList.remove('visible');
         }
       });
     }
@@ -1593,6 +1849,8 @@
       if (e.key === 'Escape') {
         if (lightbox.classList.contains('active')) {
           lightbox.classList.remove('active');
+          var igLink = document.getElementById('lightbox-ig-link');
+          if (igLink) igLink.classList.remove('visible');
         } else if (isOpen) {
           closePhotography();
         }

@@ -4,14 +4,16 @@
     "alt": "Mountain landscape at golden hour",
     "caption": "Golden Hour",
     "meta": "Landscape · 2026",
-    "layout": "wide"
+    "layout": "wide",
+    "instagramUrl": "https://www.instagram.com/p/REPLACE_WITH_POST_ID/"
   },
   {
     "src": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80",
     "alt": "Starry night over mountains",
     "caption": "Night Sky",
     "meta": "Astrophotography · 2026",
-    "layout": "tall"
+    "layout": "tall",
+    "instagramUrl": "https://www.instagram.com/p/REPLACE_WITH_POST_ID/"
   },
   {
     "src": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&q=80",
@@ -32,7 +34,8 @@
     "alt": "Sunset over rolling hills",
     "caption": "Last Light",
     "meta": "Travel · 2025",
-    "layout": "half"
+    "layout": "half",
+    "instagramUrl": "https://www.instagram.com/p/REPLACE_WITH_POST_ID/"
   },
   {
     "src": "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1600&q=80",
