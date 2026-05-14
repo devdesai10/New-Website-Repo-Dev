@@ -1,16 +1,16 @@
 {
-  "name": "Afternoon Weight Training",
+  "name": "Quad Shit",
   "type": "WeightTraining",
   "sport_type": "WeightTraining",
   "distance": 0.0,
-  "moving_time": 1956,
+  "moving_time": 6610,
   "total_elevation_gain": 0,
-  "start_date_local": "2026-05-13T15:42:38Z",
-  "id": 18495519737,
+  "start_date_local": "2026-05-13T17:37:54Z",
+  "id": 18497202786,
   "average_speed": 0.0,
   "max_speed": 0.0,
-  "average_heartrate": 117.9,
-  "max_heartrate": 158.0,
-  "kudos_count": 0,
-  "elapsed_time": 1956
+  "average_heartrate": 96.4,
+  "max_heartrate": 159.0,
+  "kudos_count": 2,
+  "elapsed_time": 6610
 }
