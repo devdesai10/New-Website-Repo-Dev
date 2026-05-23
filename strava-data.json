@@ -3,14 +3,14 @@
   "type": "WeightTraining",
   "sport_type": "WeightTraining",
   "distance": 0.0,
-  "moving_time": 3226,
+  "moving_time": 2908,
   "total_elevation_gain": 0,
-  "start_date_local": "2026-05-22T11:26:18Z",
-  "id": 18610275937,
+  "start_date_local": "2026-05-23T12:23:10Z",
+  "id": 18624565248,
   "average_speed": 0.0,
   "max_speed": 0.0,
-  "average_heartrate": 109.7,
-  "max_heartrate": 148.0,
-  "kudos_count": 0,
-  "elapsed_time": 3226
+  "average_heartrate": 102.3,
+  "max_heartrate": 142.0,
+  "kudos_count": 1,
+  "elapsed_time": 2908
 }
