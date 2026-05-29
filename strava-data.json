@@ -1,16 +1,16 @@
 {
-  "name": "Lunch Workout",
-  "type": "Workout",
-  "sport_type": "Workout",
+  "name": "Morning Weight Training",
+  "type": "WeightTraining",
+  "sport_type": "WeightTraining",
   "distance": 0.0,
-  "moving_time": 497,
+  "moving_time": 3371,
   "total_elevation_gain": 0,
-  "start_date_local": "2026-05-28T12:42:18Z",
-  "id": 18691462129,
+  "start_date_local": "2026-05-29T08:25:06Z",
+  "id": 18702277345,
   "average_speed": 0.0,
   "max_speed": 0.0,
-  "average_heartrate": 129.7,
-  "max_heartrate": 179.0,
-  "kudos_count": 0,
-  "elapsed_time": 497
+  "average_heartrate": 131.2,
+  "max_heartrate": 172.0,
+  "kudos_count": 1,
+  "elapsed_time": 3371
 }
