@@ -1,16 +1,16 @@
 {
-  "name": "Morning Workout",
+  "name": "Afternoon Workout",
   "type": "Workout",
   "sport_type": "Workout",
   "distance": 0.0,
-  "moving_time": 492,
+  "moving_time": 1897,
   "total_elevation_gain": 0,
-  "start_date_local": "2026-05-30T09:09:30Z",
-  "id": 18715594624,
+  "start_date_local": "2026-05-30T14:17:25Z",
+  "id": 18719744178,
   "average_speed": 0.0,
   "max_speed": 0.0,
-  "average_heartrate": 110.9,
-  "max_heartrate": 133.0,
+  "average_heartrate": 120.4,
+  "max_heartrate": 151.0,
   "kudos_count": 0,
-  "elapsed_time": 492
+  "elapsed_time": 1897
 }
