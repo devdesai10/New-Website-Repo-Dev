@@ -1,16 +1,16 @@
 {
-  "name": "Afternoon Ride",
-  "type": "Ride",
-  "sport_type": "Ride",
-  "distance": 8491.8,
-  "moving_time": 1604,
-  "total_elevation_gain": 58.0,
-  "start_date_local": "2026-06-03T17:21:17Z",
-  "id": 18775973692,
-  "average_speed": 5.294,
-  "max_speed": 9.74,
+  "name": "Evening Football (Soccer)",
+  "type": "Soccer",
+  "sport_type": "Soccer",
+  "distance": 6759.3,
+  "moving_time": 2687,
+  "total_elevation_gain": 0,
+  "start_date_local": "2026-06-05T00:17:00Z",
+  "id": 18794922293,
+  "average_speed": 2.516,
+  "max_speed": 0,
   "average_heartrate": null,
   "max_heartrate": null,
-  "kudos_count": 0,
-  "elapsed_time": 1704
+  "kudos_count": 1,
+  "elapsed_time": 2687
 }
