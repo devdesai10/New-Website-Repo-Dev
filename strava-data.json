@@ -3,14 +3,14 @@
   "type": "Workout",
   "sport_type": "Workout",
   "distance": 0.0,
-  "moving_time": 1279,
+  "moving_time": 1342,
   "total_elevation_gain": 0,
-  "start_date_local": "2026-06-13T00:02:31Z",
-  "id": 18895845490,
+  "start_date_local": "2026-06-14T21:54:56Z",
+  "id": 18922312139,
   "average_speed": 0.0,
   "max_speed": 0.0,
-  "average_heartrate": 130.6,
-  "max_heartrate": 150.0,
-  "kudos_count": 0,
-  "elapsed_time": 1279
+  "average_heartrate": 90.4,
+  "max_heartrate": 115.0,
+  "kudos_count": 3,
+  "elapsed_time": 1342
 }
