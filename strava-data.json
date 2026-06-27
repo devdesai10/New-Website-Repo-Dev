@@ -1,16 +1,16 @@
 {
-  "name": "Night Workout",
+  "name": "Afternoon Workout",
   "type": "Workout",
   "sport_type": "Workout",
   "distance": 0.0,
-  "moving_time": 1262,
+  "moving_time": 1795,
   "total_elevation_gain": 0,
-  "start_date_local": "2026-06-25T00:50:46Z",
-  "id": 19055392679,
+  "start_date_local": "2026-06-27T16:53:49Z",
+  "id": 19087475977,
   "average_speed": 0.0,
   "max_speed": 0.0,
-  "average_heartrate": 89.4,
-  "max_heartrate": 122.0,
-  "kudos_count": 2,
-  "elapsed_time": 1262
+  "average_heartrate": 113.8,
+  "max_heartrate": 146.0,
+  "kudos_count": 0,
+  "elapsed_time": 1795
 }
