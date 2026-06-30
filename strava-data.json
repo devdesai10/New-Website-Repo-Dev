@@ -1,5 +1,5 @@
 {
-  "name": "Evening Run",
+  "name": "Soccer",
   "type": "Run",
   "sport_type": "Run",
   "distance": 53.3,
@@ -11,6 +11,6 @@
   "max_speed": 1.362,
   "average_heartrate": 105.9,
   "max_heartrate": 187.0,
-  "kudos_count": 1,
+  "kudos_count": 3,
   "elapsed_time": 3577
 }
