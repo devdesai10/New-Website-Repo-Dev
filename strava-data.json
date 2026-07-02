@@ -1,16 +1,16 @@
 {
-  "name": "My bike tire popped 🥲",
+  "name": "Morning Walk",
   "type": "Walk",
   "sport_type": "Walk",
-  "distance": 2250.8,
-  "moving_time": 1510,
-  "total_elevation_gain": 13.0,
-  "start_date_local": "2026-06-30T17:47:49Z",
-  "id": 19129866421,
-  "average_speed": 1.491,
-  "max_speed": 9.675,
-  "average_heartrate": 121.6,
-  "max_heartrate": 135.0,
-  "kudos_count": 3,
-  "elapsed_time": 1510
+  "distance": 1730.9,
+  "moving_time": 1441,
+  "total_elevation_gain": 3.8,
+  "start_date_local": "2026-07-02T07:21:06Z",
+  "id": 19149307825,
+  "average_speed": 1.201,
+  "max_speed": 4.749,
+  "average_heartrate": 103.9,
+  "max_heartrate": 119.0,
+  "kudos_count": 1,
+  "elapsed_time": 1563
 }
