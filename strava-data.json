@@ -1,16 +1,16 @@
 {
-  "name": "Afternoon Walk",
+  "name": "Evening Walk",
   "type": "Walk",
   "sport_type": "Walk",
-  "distance": 2485.8,
-  "moving_time": 2088,
-  "total_elevation_gain": 2.8,
-  "start_date_local": "2026-07-07T13:00:34Z",
-  "id": 19213407729,
-  "average_speed": 1.191,
-  "max_speed": 10.556,
+  "distance": 1587.8,
+  "moving_time": 1218,
+  "total_elevation_gain": 0.0,
+  "start_date_local": "2026-07-07T20:45:45Z",
+  "id": 19218959140,
+  "average_speed": 1.304,
+  "max_speed": 13.4,
   "average_heartrate": null,
   "max_heartrate": null,
-  "kudos_count": 1,
-  "elapsed_time": 3041
+  "kudos_count": 0,
+  "elapsed_time": 1326
 }
