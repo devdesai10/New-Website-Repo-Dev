@@ -1,16 +1,16 @@
 {
-  "name": "Morning Weight Training",
-  "type": "WeightTraining",
-  "sport_type": "WeightTraining",
+  "name": "Evening Workout",
+  "type": "Workout",
+  "sport_type": "Workout",
   "distance": 0.0,
-  "moving_time": 2147,
+  "moving_time": 4192,
   "total_elevation_gain": 0,
-  "start_date_local": "2026-07-15T05:14:52Z",
-  "id": 19320571584,
+  "start_date_local": "2026-07-16T19:17:25Z",
+  "id": 19345507144,
   "average_speed": 0.0,
   "max_speed": 0.0,
-  "average_heartrate": 89.8,
-  "max_heartrate": 120.0,
-  "kudos_count": 3,
-  "elapsed_time": 2147
+  "average_heartrate": 145.0,
+  "max_heartrate": 176.0,
+  "kudos_count": 1,
+  "elapsed_time": 4192
 }
