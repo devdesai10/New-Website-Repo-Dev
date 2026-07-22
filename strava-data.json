@@ -1,16 +1,16 @@
 {
-  "name": "Night Football (Soccer)",
-  "type": "Soccer",
-  "sport_type": "Soccer",
-  "distance": 6152.3,
-  "moving_time": 5834,
+  "name": "Weights",
+  "type": "Workout",
+  "sport_type": "Workout",
+  "distance": 0.0,
+  "moving_time": 4087,
   "total_elevation_gain": 0,
-  "start_date_local": "2026-07-22T00:12:30Z",
-  "id": 19411078133,
-  "average_speed": 1.055,
+  "start_date_local": "2026-07-22T05:04:33Z",
+  "id": 19415164999,
+  "average_speed": 0.0,
   "max_speed": 0.0,
-  "average_heartrate": 130.1,
-  "max_heartrate": 169.0,
-  "kudos_count": 1,
-  "elapsed_time": 5834
+  "average_heartrate": 84.0,
+  "max_heartrate": 111.0,
+  "kudos_count": 0,
+  "elapsed_time": 4087
 }
