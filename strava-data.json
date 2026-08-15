@@ -1,16 +1,16 @@
 {
-  "name": "Afternoon Workout",
-  "type": "Workout",
-  "sport_type": "Workout",
+  "name": "Evening Weight Training",
+  "type": "WeightTraining",
+  "sport_type": "WeightTraining",
   "distance": 0.0,
-  "moving_time": 2139,
+  "moving_time": 2445,
   "total_elevation_gain": 0,
-  "start_date_local": "2026-08-14T17:02:00Z",
-  "id": 19740645515,
+  "start_date_local": "2026-08-15T19:13:08Z",
+  "id": 19756379066,
   "average_speed": 0.0,
   "max_speed": 0.0,
-  "average_heartrate": 105.9,
-  "max_heartrate": 160.0,
-  "kudos_count": 1,
-  "elapsed_time": 2139
+  "average_heartrate": 106.2,
+  "max_heartrate": 155.0,
+  "kudos_count": 0,
+  "elapsed_time": 2445
 }
