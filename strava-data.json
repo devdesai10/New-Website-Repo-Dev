@@ -1,16 +1,16 @@
 {
-  "name": "Night Weight Training",
+  "name": "Afternoon Weight Training",
   "type": "WeightTraining",
   "sport_type": "WeightTraining",
   "distance": 0.0,
-  "moving_time": 3151,
+  "moving_time": 1827,
   "total_elevation_gain": 0,
-  "start_date_local": "2026-08-17T23:27:33Z",
-  "id": 19785745368,
+  "start_date_local": "2026-08-20T14:41:16Z",
+  "id": 19824406155,
   "average_speed": 0.0,
   "max_speed": 0.0,
-  "average_heartrate": 110.8,
-  "max_heartrate": 160.0,
-  "kudos_count": 2,
-  "elapsed_time": 3151
+  "average_heartrate": 103.1,
+  "max_heartrate": 125.0,
+  "kudos_count": 0,
+  "elapsed_time": 1827
 }
