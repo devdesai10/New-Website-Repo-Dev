@@ -1,16 +1,16 @@
 {
-  "name": "Night Workout",
+  "name": "Lunch Workout",
   "type": "Workout",
   "sport_type": "Workout",
   "distance": 0.0,
-  "moving_time": 2374,
+  "moving_time": 3626,
   "total_elevation_gain": 0,
-  "start_date_local": "2026-09-01T23:16:27Z",
-  "id": 19997107951,
+  "start_date_local": "2026-09-03T11:49:47Z",
+  "id": 20017967118,
   "average_speed": 0.0,
   "max_speed": 0.0,
-  "average_heartrate": 138.1,
-  "max_heartrate": 169.0,
-  "kudos_count": 1,
-  "elapsed_time": 2374
+  "average_heartrate": 100.9,
+  "max_heartrate": 143.0,
+  "kudos_count": 0,
+  "elapsed_time": 3626
 }
