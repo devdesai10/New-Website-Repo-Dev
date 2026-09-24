@@ -1,16 +1,16 @@
 {
-  "name": "Evening Workout",
+  "name": "Morning Workout",
   "type": "Workout",
   "sport_type": "Workout",
-  "distance": 7103.3,
-  "moving_time": 1354,
-  "total_elevation_gain": 55.3,
-  "start_date_local": "2026-09-23T19:30:44Z",
-  "id": 20304317715,
-  "average_speed": 5.246,
-  "max_speed": 23.12,
-  "average_heartrate": 83.5,
-  "max_heartrate": 118.0,
-  "kudos_count": 0,
-  "elapsed_time": 3605
+  "distance": 967.3,
+  "moving_time": 1309,
+  "total_elevation_gain": 0.0,
+  "start_date_local": "2026-09-24T05:52:14Z",
+  "id": 20308394768,
+  "average_speed": 0.739,
+  "max_speed": 7.64,
+  "average_heartrate": 93.5,
+  "max_heartrate": 120.0,
+  "kudos_count": 1,
+  "elapsed_time": 2328
 }
