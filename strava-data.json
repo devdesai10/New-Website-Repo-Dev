@@ -1,16 +1,16 @@
 {
-  "name": "Morning Workout",
+  "name": "Legs",
   "type": "Workout",
   "sport_type": "Workout",
-  "distance": 1853.2,
-  "moving_time": 2060,
+  "distance": 2055.9,
+  "moving_time": 2547,
   "total_elevation_gain": 0.0,
-  "start_date_local": "2026-10-09T05:41:08Z",
-  "id": 20520711118,
-  "average_speed": 0.9,
-  "max_speed": 5.675,
-  "average_heartrate": 85.9,
-  "max_heartrate": 125.0,
+  "start_date_local": "2026-10-10T11:22:33Z",
+  "id": 20530754093,
+  "average_speed": 0.807,
+  "max_speed": 12.353,
+  "average_heartrate": 92.0,
+  "max_heartrate": 133.0,
   "kudos_count": 1,
-  "elapsed_time": 3608
+  "elapsed_time": 3844
 }
