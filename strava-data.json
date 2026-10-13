@@ -1,16 +1,16 @@
 {
-  "name": "Mid work workout",
+  "name": "Light Day",
   "type": "Workout",
   "sport_type": "Workout",
-  "distance": 2148.7,
-  "moving_time": 1948,
+  "distance": 1932.3,
+  "moving_time": 1625,
   "total_elevation_gain": 0.0,
-  "start_date_local": "2026-10-12T14:09:45Z",
-  "id": 20558545377,
-  "average_speed": 1.103,
-  "max_speed": 9.26,
-  "average_heartrate": 106.9,
-  "max_heartrate": 146.0,
-  "kudos_count": 5,
-  "elapsed_time": 2862
+  "start_date_local": "2026-10-13T05:40:11Z",
+  "id": 20565340916,
+  "average_speed": 1.189,
+  "max_speed": 9.58,
+  "average_heartrate": 111.6,
+  "max_heartrate": 144.0,
+  "kudos_count": 1,
+  "elapsed_time": 2295
 }
