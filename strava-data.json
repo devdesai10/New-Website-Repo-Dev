@@ -1,5 +1,5 @@
 {
-  "name": "Morning Workout",
+  "name": "Rehab",
   "type": "Workout",
   "sport_type": "Workout",
   "distance": 1775.8,
@@ -11,6 +11,6 @@
   "max_speed": 13.66,
   "average_heartrate": 90.8,
   "max_heartrate": 120.0,
-  "kudos_count": 0,
+  "kudos_count": 2,
   "elapsed_time": 2438
 }
