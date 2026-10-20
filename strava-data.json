@@ -1,16 +1,16 @@
 {
-  "name": "Rehab",
+  "name": "Afternoon Workout",
   "type": "Workout",
   "sport_type": "Workout",
-  "distance": 1775.8,
-  "moving_time": 1610,
+  "distance": 224.6,
+  "moving_time": 450,
   "total_elevation_gain": 0.0,
-  "start_date_local": "2026-10-16T05:48:07Z",
-  "id": 20606564131,
-  "average_speed": 1.103,
-  "max_speed": 13.66,
-  "average_heartrate": 90.8,
-  "max_heartrate": 120.0,
-  "kudos_count": 3,
-  "elapsed_time": 2438
+  "start_date_local": "2026-10-20T17:23:12Z",
+  "id": 20666886054,
+  "average_speed": 0.499,
+  "max_speed": 1.72,
+  "average_heartrate": 93.6,
+  "max_heartrate": 123.0,
+  "kudos_count": 0,
+  "elapsed_time": 1135
 }
