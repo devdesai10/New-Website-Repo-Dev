@@ -140,16 +140,26 @@
 
   /* Experience */
   .timeline { position: relative; }
-  .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 2px; background: var(--border-subtle); border-radius: 1px; }
   .timeline-item { padding-left: 32px; padding-bottom: 40px; position: relative; }
   .timeline-item:last-child { padding-bottom: 0; }
-  .timeline-item::before { content: ''; position: absolute; left: -4px; top: 8px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-  .timeline-item:hover::before { transform: scale(1.6); box-shadow: 0 0 0 4px rgba(212, 43, 43, 0.15); }
-  .timeline-item__date { font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0; margin-bottom: 4px; font-weight: 500; }
+  /* Each item draws the line down to the next marker, so the line stops at the last one */
+  .timeline-item:not(:last-child)::after { content: ''; position: absolute; left: 0; top: 8px; bottom: -8px; width: 2px; background: var(--border-subtle); }
+  /* Markers: hollow for past roles, filled accent for current ones */
+  .timeline-item::before { content: ''; position: absolute; z-index: 1; left: -4px; top: 8px; width: 10px; height: 10px; border-radius: 50%; background: var(--bg); border: 2px solid var(--border); box-shadow: 0 0 0 3px var(--bg); }
+  .timeline-item--current::before { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 16%, var(--bg)); }
+  .timeline-item__date { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.04em; margin-bottom: 4px; font-weight: 500; font-variant-numeric: tabular-nums; }
   .timeline-item__role { font-size: 1.2rem; margin-bottom: 2px; font-weight: 600; letter-spacing: -0.02em; }
-  .timeline-item__company { color: var(--accent); -webkit-text-fill-color: var(--accent); background: none; -webkit-background-clip: unset; background-clip: unset; font-size: 0.9rem; margin-bottom: 8px; font-weight: 500; }
+  .timeline-item__company { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 10px; font-weight: 500; }
   .timeline-item__desc { color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; max-width: 540px; }
   .timeline-item__desc li { margin-bottom: 4px; margin-left: 16px; list-style: disc; }
+  .timeline-item__desc li::marker { color: var(--text-dim); }
+  /* One company, several roles: company heading on the main marker, a smaller marker per role */
+  .timeline-group__company { font-size: 1.45rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 24px; }
+  .timeline-role { position: relative; padding-bottom: 28px; }
+  .timeline-role:last-child { padding-bottom: 0; }
+  .timeline-role::before { content: ''; position: absolute; z-index: 1; left: -34px; top: 6px; width: 6px; height: 6px; border-radius: 50%; background: var(--text-dim); box-shadow: 0 0 0 3px var(--bg); }
+  .timeline-role--current::before { background: var(--accent); }
+  .timeline-role__title { font-size: 1.2rem; margin-bottom: 10px; font-weight: 600; letter-spacing: -0.02em; }
 
   /* Education */
   .edu-section { margin-top: 80px; }
@@ -343,7 +353,7 @@
     <div>
       <p class="hero__label">Available for opportunities</p>
       <h1 class="hero__title">Hi, I'm<br><em><span class="typing-wrapper" id="typed-name"></span><span class="typing-cursor"></span></em></h1>
-      <p class="hero__subtitle">Cloud Support Associate at AWS. Passionate about cloud computing, building solutions, and making things work beautifully. Rutgers ITI graduate.</p>
+      <p class="hero__subtitle">Cloud Support Engineer at AWS. Passionate about cloud computing, building solutions, and making things work beautifully. Rutgers ITI graduate.</p>
       <div class="hero__cta">
         <a href="https://www.linkedin.com/in/devan-desai-/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">LinkedIn</a>
         <a href="https://docs.google.com/document/d/1sfXfAEByiqKkD9c1fUIVtKffkp7KItv37qcC9-pTcy0/export?format=pdf" download="Devan_Desai_Resume.pdf" class="btn btn--ghost">View Resume →</a>
@@ -406,6 +416,9 @@
         <span class="skill-tag">AppRunner</span>
         <span class="skill-tag">Amazon Q Developer</span>
         <span class="skill-tag">Kiro</span>
+        <span class="skill-tag">Kubernetes</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Amazon EKS</span>
       </div>
     </div>
   </div>
@@ -420,27 +433,69 @@
     <h2 class="section__heading reveal">Work experience.</h2>
     <div class="timeline reveal">
 
-      <div class="timeline-item">
-        <p class="timeline-item__date">AUG 2025 — PRESENT</p>
-        <h3 class="timeline-item__role">Cloud Support Associate</h3>
-        <p class="timeline-item__company">Amazon Web Services</p>
-        <div class="timeline-item__desc">
-          <ul>
-            <li>Provides technical support for AWS Cloud Infrastructure.</li>
-            <li>Troubleshoots and resolves complex infrastructure issues.</li>
-            <li>Deployment Engineer that deals with AWS Services such as Elastic Beanstalk, AWS CodeSuite, AppRunner, DevOps Agent, Kiro, and Amazon Q Developer.</li>
-          </ul>
+      <div class="timeline-item timeline-item--current">
+        <h3 class="timeline-group__company">Amazon Web Services</h3>
+        <div class="timeline-roles">
+
+          <div class="timeline-role timeline-role--current">
+            <p class="timeline-item__date">SEP 2026 — PRESENT</p>
+            <h4 class="timeline-role__title">CDP Cloud Support Engineer I</h4>
+            <div class="timeline-item__desc">
+              <ul>
+                <li>Guides customers through cloud migrations and business-critical events.</li>
+                <li>Works proactively with Amazon EKS customers to catch risks early, before they turn into issues.</li>
+                <li>Troubleshoots and resolves complex infrastructure issues when they do come up.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-role">
+            <p class="timeline-item__date">MAY 2026 — SEP 2026</p>
+            <h4 class="timeline-role__title">Cloud Support Engineer I</h4>
+            <div class="timeline-item__desc">
+              <ul>
+                <li>Provides technical support for AWS Cloud Infrastructure.</li>
+                <li>Troubleshoots and resolves complex infrastructure issues.</li>
+                <li>Deployment Engineer that deals with AWS Services such as Elastic Beanstalk, AWS CodeSuite, AppRunner, DevOps Agent, Kiro, Amazon Q Developer, CloudFormation, and Control Tower.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-role">
+            <p class="timeline-item__date">AUG 2025 — MAY 2026</p>
+            <h4 class="timeline-role__title">Cloud Support Associate</h4>
+            <div class="timeline-item__desc">
+              <ul>
+                <li>Provides technical support for AWS Cloud Infrastructure.</li>
+                <li>Troubleshoots and resolves complex infrastructure issues.</li>
+                <li>Deployment Engineer that deals with AWS Services such as Elastic Beanstalk, AWS CodeSuite, AppRunner, DevOps Agent, Kiro, and Amazon Q Developer.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-role">
+            <p class="timeline-item__date">JUN 2024 — AUG 2024</p>
+            <h4 class="timeline-role__title">Cloud Support Associate Intern</h4>
+            <div class="timeline-item__desc">
+              <ul>
+                <li>Gained hands-on experience with AWS cloud services and support workflows.</li>
+                <li>Worked alongside senior engineers to resolve customer issues.</li>
+                <li>Completed internal trainings and earned AWS certifications.</li>
+              </ul>
+            </div>
+          </div>
+
         </div>
       </div>
 
-            <div class="timeline-item">
+      <div class="timeline-item timeline-item--current">
         <p class="timeline-item__date">FEB 2022 — PRESENT</p>
         <h3 class="timeline-item__role">Freelance Photographer</h3>
         <p class="timeline-item__company">Personal</p>
         <div class="timeline-item__desc">
           <ul>
-            <li>I have done multiple different types of photo shoots</li>
-            <li>Graduation, Sports Action, Car Meets, Still Life, Professional Headshots</li>
+            <li>I have done multiple different types of photo shoots.</li>
+            <li>Graduation, Sports Action, Car Meets, Still Life, Professional Headshots.</li>
           </ul>
         </div>
       </div>
@@ -454,19 +509,6 @@
             <li>Led outdoor adventure trips for large and small groups of students.</li>
             <li>Managed trip logistics, safety planning, and risk assessment.</li>
             <li>Mentored and trained junior trip leaders, in multiple different fields.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <p class="timeline-item__date">JUN 2024 — AUG 2024</p>
-        <h3 class="timeline-item__role">Cloud Support Associate Intern</h3>
-        <p class="timeline-item__company">Amazon Web Services</p>
-        <div class="timeline-item__desc">
-          <ul>
-            <li>Gained hands-on experience with AWS cloud services and support workflows.</li>
-            <li>Worked alongside senior engineers to resolve customer issues.</li>
-            <li>Completed internal trainings and earned AWS certifications.</li>
           </ul>
         </div>
       </div>
@@ -489,7 +531,7 @@
         <p class="timeline-item__company">Amplify Education</p>
         <div class="timeline-item__desc">
           <ul>
-            <li>Contributed to curriculum design for K-12 math programs</li>
+            <li>Contributed to curriculum design for K-12 math programs.</li>
             <li>Reviewed and tested educational content for accuracy.</li>
             <li>Translated graphics into Spanish using Adobe Illustrator.</li>
           </ul>
@@ -502,8 +544,8 @@
         <p class="timeline-item__company">Turtle and Hughes</p>
         <div class="timeline-item__desc">
           <ul>
-            <li>Processed and organized invoices using internal systems</li>
-            <li>Assisted with data entry and financial record keeping</li>
+            <li>Processed and organized invoices using internal systems.</li>
+            <li>Assisted with data entry and financial record keeping.</li>
           </ul>
         </div>
       </div>
