@@ -1,16 +1,16 @@
 {
-  "name": "Recov run",
+  "name": "Interval Run",
   "type": "Workout",
   "sport_type": "Workout",
-  "distance": 330.5,
-  "moving_time": 936,
+  "distance": 475.2,
+  "moving_time": 1153,
   "total_elevation_gain": 0.0,
-  "start_date_local": "2026-10-22T17:11:52Z",
-  "id": 20693506126,
-  "average_speed": 0.353,
-  "max_speed": 0.92,
-  "average_heartrate": 144.8,
-  "max_heartrate": 168.0,
-  "kudos_count": 4,
-  "elapsed_time": 1353
+  "start_date_local": "2026-10-26T17:57:33Z",
+  "id": 20743450906,
+  "average_speed": 0.412,
+  "max_speed": 1.86,
+  "average_heartrate": 112.7,
+  "max_heartrate": 154.0,
+  "kudos_count": 1,
+  "elapsed_time": 1399
 }
