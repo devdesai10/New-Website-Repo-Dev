@@ -1,16 +1,16 @@
 {
-  "name": "Interval Run",
+  "name": "Run",
   "type": "Workout",
   "sport_type": "Workout",
-  "distance": 475.2,
-  "moving_time": 1153,
+  "distance": 258.4,
+  "moving_time": 669,
   "total_elevation_gain": 0.0,
-  "start_date_local": "2026-10-26T17:57:33Z",
-  "id": 20743450906,
-  "average_speed": 0.412,
-  "max_speed": 1.86,
-  "average_heartrate": 112.7,
-  "max_heartrate": 154.0,
-  "kudos_count": 4,
-  "elapsed_time": 1399
+  "start_date_local": "2026-10-29T17:44:59Z",
+  "id": 20784218020,
+  "average_speed": 0.386,
+  "max_speed": 0.96,
+  "average_heartrate": 146.8,
+  "max_heartrate": 170.0,
+  "kudos_count": 2,
+  "elapsed_time": 991
 }
